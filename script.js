@@ -2,15 +2,22 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        hamburger.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
 }));
 
 // Smooth scrolling for navigation links
@@ -103,31 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
-    }
-});
-
 // Project card hover effects
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -161,16 +143,6 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-});
-
 // Add active class to current navigation item
 function setActiveNavItem() {
     const sections = document.querySelectorAll('section[id]');
@@ -185,12 +157,14 @@ function setActiveNavItem() {
         }
     });
     
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+    if (!current) return;
+    const matchingLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${current}`);
+    if (!matchingLink) return;
+    navLinks.forEach(link => link.classList.remove('active'));
+    matchingLink.classList.add('active');
 }
 
 window.addEventListener('scroll', setActiveNavItem); 
+
+const year = document.getElementById('current-year');
+if (year) year.textContent = new Date().getFullYear();

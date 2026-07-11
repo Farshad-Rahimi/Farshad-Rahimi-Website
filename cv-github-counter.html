@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Farshad Rahimi (GitHub Counter)</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .cv-download-container {
@@ -101,14 +101,11 @@
 
     <!-- CV Download Section -->
     <section class="cv-download-container">
-        <h1 class="cv-download-title">Download My CV</h1>
-        <p class="cv-download-description">Access my complete academic and professional background, including research experience, publications, and technical skills.</p>
-        <a href="codes/CV_Farshad_Rahimi.pdf" class="download-button" id="downloadBtn" download>
-            <i class="fas fa-download"></i> Download Farshad CV
+        <h1 class="cv-download-title">Request My CV</h1>
+        <p class="cv-download-description">For my complete academic and professional background, please request the latest version by email.</p>
+        <a href="mailto:rahimifarshad14@gmail.com?subject=CV%20Request" class="download-button" id="downloadBtn">
+            <i class="fas fa-envelope"></i> Request the latest CV
         </a>
-        <div class="download-counter">
-            Downloaded <span class="counter-number" id="downloadCount">Loading...</span> times
-        </div>
     </section>
 
     <!-- Footer -->
@@ -129,30 +126,23 @@
         function loadDownloadCount() {
             try {
                 downloadCount = parseInt(localStorage.getItem('cvDownloadCount')) || 0;
-                counterElement.textContent = downloadCount;
+                if (counterElement) counterElement.textContent = downloadCount;
                 console.log('Loaded counter:', downloadCount);
             } catch (error) {
                 console.error('Error loading counter:', error);
-                counterElement.textContent = '0';
+                if (counterElement) counterElement.textContent = '0';
             }
         }
 
         function updateDownloadCount() {
             downloadCount++;
-            counterElement.textContent = downloadCount;
+            if (counterElement) counterElement.textContent = downloadCount;
             localStorage.setItem('cvDownloadCount', downloadCount);
             console.log('Updated counter to:', downloadCount);
         }
 
         // Handle download click
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            console.log('Download button clicked');
-            updateDownloadCount();
-            
-            setTimeout(() => {
-                // Download starts automatically
-            }, 100);
-        });
+        // The current button sends a CV request by email; no download is counted.
 
         // Load count when page loads
         document.addEventListener('DOMContentLoaded', function() {

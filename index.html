@@ -3,59 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farshad Rahimi - Professional Portfolio</title>
+    <meta name="description" content="Farshad Rahimi's research portfolio in control engineering, robotics, fault-tolerant control, and multi-agent systems.">
+    <meta name="theme-color" content="#0b132b">
+    <meta property="og:title" content="Farshad Rahimi | Control &amp; Robotics Researcher">
+    <meta property="og:description" content="Research, publications, simulations, and engineering projects in intelligent control and robotics.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/farshad-profile.jpg">
+    <title>Farshad Rahimi | Control &amp; Robotics Researcher</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Farshad Rahimi</h2>
-            </div>
+            <a class="nav-logo" href="index.html" aria-label="Farshad Rahimi home"><h2>FR.</h2></a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="publications.html" class="nav-link">My Publications</a>
+                    <a href="publications.html" class="nav-link">Publications</a>
                 </li>
                 <li class="nav-item">
-                    <a href="ros-simulations.html" class="nav-link">My ROS Simulations</a>
+                    <a href="ros-simulations.html" class="nav-link">Simulations</a>
                 </li>
                 <li class="nav-item">
-                    <a href="codes.html" class="nav-link">My Codes Julia & Matlab</a>
+                    <a href="codes.html" class="nav-link">Research Code</a>
                 </li>
                 <li class="nav-item">
                     <a href="cv.html" class="nav-link">CV</a>
                 </li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Open navigation" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Welcome to My Page!</h1>
+                <p class="hero-eyebrow">CONTROL ENGINEERING · ROBOTICS · INTELLIGENT SYSTEMS</p>
+                <h1 class="hero-title">Researching safer, smarter autonomous systems.</h1>
+                <p class="hero-subtitle">I am Farshad Rahimi, a control and robotics researcher working on fault-tolerant control, distributed estimation, multi-agent systems, and learning-based methods.</p>
                 <div class="hero-buttons">
-                    <a href="publications.html" class="btn btn-primary">View My Publications</a>
-                    <a href="cv.html" class="btn btn-secondary">Download CV</a>
-                    <a href="#about" class="btn btn-secondary">About Me</a>
+                    <a href="publications.html" class="btn btn-primary">Explore publications <span aria-hidden="true">&#8594;</span></a>
+                    <a href="mailto:rahimifarshad14@gmail.com" class="btn btn-secondary">Contact me</a>
                 </div>
                 
                 <!-- Contact Information Box -->
                 <div class="hero-contact-info">
-                    <h3>Contact Information</h3>
+                    <h3>Research profiles &amp; contact</h3>
                     <div class="hero-contact-links">
-                        <a href="https://scholar.google.com/citations?hl=en&user=KOzMTRsAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="hero-contact-link">
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=KOzMTRsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer" class="hero-contact-link">
                             <i class="fas fa-graduation-cap"></i>
                             Google Scholar Profile
                         </a>
@@ -72,7 +79,10 @@
                         <img src="images/farshad-profile.jpg" alt="Farshad Rahimi" class="profile-image">
                     </div>
                     <h3>Farshad Rahimi</h3>
-                    <p>Control Engineering</p>
+                    <p>Control &amp; Robotics Researcher</p>
+                    <div class="profile-tags" aria-label="Research areas">
+                        <span>MATLAB</span><span>Julia</span><span>ROS</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,20 +91,28 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <p class="section-kicker">ABOUT</p>
+            <h2 class="section-title">Engineering resilient intelligent systems</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hello! I'm Farshad Rahimi, an accomplished electrical engineer with a Master's degree in Control Systems from Sahand University of Technology, Tabriz, Iran, and a Bachelor's degree in Robotic Engineering from Hamedan University of Technology.</p>
-                    <p>With expertise in MATLAB, ROS, Julia and various programming languages. I enjoy developing advanced algorithms and simulations that push the boundaries of what's possible in robotics and automation.</p>
+                    <p>I hold an M.Sc. in Electrical Engineering&mdash;Control Systems from Sahand University of Technology and a B.Sc. in Robotics Engineering from Hamedan University of Technology.</p>
+                    <p>My work connects rigorous control theory with practical simulation and implementation. I develop methods for nonlinear systems, networked agents, fault estimation, and autonomous robots using MATLAB, Julia, and ROS.</p>
+                </div>
+                <div class="research-grid">
+                    <article class="research-card"><span>01</span><h3>Fault-tolerant control</h3><p>Observer- and learning-based methods for nonlinear and time-delay systems.</p></article>
+                    <article class="research-card"><span>02</span><h3>Multi-agent systems</h3><p>Distributed estimation, optimization, and coordination over communication networks.</p></article>
+                    <article class="research-card"><span>03</span><h3>Robotics simulation</h3><p>Reproducible MATLAB, Julia, ROS, and Webots experiments for autonomous systems.</p></article>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Farshad Rahimi. All rights reserved.</p>
+            <p>&copy; <span id="current-year">2026</span> Farshad Rahimi.</p>
+            <p>Control engineering · Robotics · Intelligent systems</p>
         </div>
     </footer>
 
