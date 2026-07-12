@@ -49,18 +49,7 @@
             background: #45a049;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .download-counter {
-            margin-top: 30px;
-            font-size: 1rem;
-            color: #888;
-        }
-
-        .counter-number {
-            font-weight: 600;
-            color: #4CAF50;
-        }
+        }
 
         .loading {
             opacity: 0.6;
@@ -102,7 +91,6 @@
     <!-- CV Download Section -->
     <section class="cv-download-container">
         <h1 class="cv-download-title">Download My CV</h1>
-        <p class="cv-download-description">Access the latest version securely through Proton Drive. The CV is stored outside this website's public repository.</p>
         <a href="https://drive.proton.me/urls/ZHEHRFA4CM#uAfJM95mcG4h" class="download-button" id="downloadBtn" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-lock"></i> Open secure CV download
         </a>
@@ -115,40 +103,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        // GitHub-based counter (requires GitHub token setup)
-        // This is an alternative solution if you want global counter
-        let downloadCount = 0;
-        const counterElement = document.getElementById('downloadCount');
-        
-        // For now, using localStorage as the primary solution
-        function loadDownloadCount() {
-            try {
-                downloadCount = parseInt(localStorage.getItem('cvDownloadCount')) || 0;
-                if (counterElement) counterElement.textContent = downloadCount;
-                console.log('Loaded counter:', downloadCount);
-            } catch (error) {
-                console.error('Error loading counter:', error);
-                if (counterElement) counterElement.textContent = '0';
-            }
-        }
-
-        function updateDownloadCount() {
-            downloadCount++;
-            if (counterElement) counterElement.textContent = downloadCount;
-            localStorage.setItem('cvDownloadCount', downloadCount);
-            console.log('Updated counter to:', downloadCount);
-        }
-
-        // Handle download click
-        // The current button sends a CV request by email; no download is counted.
-
-        // Load count when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, loading counter...');
-            loadDownloadCount();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html> 

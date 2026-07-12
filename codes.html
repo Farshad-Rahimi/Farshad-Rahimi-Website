@@ -123,18 +123,7 @@
             background: #45a049;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .download-counter {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 8px;
-        }
-
-        .counter-number {
-            font-weight: 600;
-            color: #4CAF50;
-        }
+        }
 
         .paper-description {
             color: #555;
@@ -352,9 +341,6 @@
                         <a href="codes/Codes_of_Paper.rar" class="download-button" id="downloadBtn1" download>
                             <i class="fas fa-download"></i> Download Codes
                         </a>
-                        <div class="download-counter">
-                            Downloaded <span class="counter-number" id="downloadCount1">0</span> times
-                        </div>
                     </div>
                 </div>
             </div>
@@ -385,9 +371,6 @@
                         <a href="codes/Simulation_Julia_ADP1.rar" class="download-button" id="downloadBtn2" download>
                             <i class="fas fa-download"></i> Download Julia Codes
                         </a>
-                        <div class="download-counter">
-                            Downloaded <span class="counter-number" id="downloadCount2">0</span> times
-                        </div>
                     </div>
                 </div>
             </div>
@@ -418,9 +401,6 @@
                         <a href="codes/Simulation_Julia_ADP.rar" class="download-button" id="downloadBtn3" download>
                             <i class="fas fa-download"></i> Download Julia Codes
                         </a>
-                        <div class="download-counter">
-                            Downloaded <span class="counter-number" id="downloadCount3">0</span> times
-                        </div>
                     </div>
                 </div>
             </div>
@@ -451,9 +431,6 @@
                         <a href="codes/Julia_codes_Neural_observer.rar" class="download-button" id="downloadBtn4" download>
                             <i class="fas fa-download"></i> Download Julia Codes
                         </a>
-                        <div class="download-counter">
-                            Downloaded <span class="counter-number" id="downloadCount4">0</span> times
-                        </div>
                     </div>
                 </div>
             </div>
@@ -485,9 +462,6 @@
                         <a href="codes/Final_version_codes.rar" class="download-button" id="downloadBtn5" download>
                             <i class="fas fa-download"></i> Download Drug Dosing Codes
                         </a>
-                        <div class="download-counter">
-                            Downloaded <span class="counter-number" id="downloadCount5">0</span> times
-                        </div>
                     </div>
                 </div>
             </div>
@@ -504,28 +478,6 @@
 
     <script src="script.js"></script>
     <script>
-        // Download counter functionality for all papers
-        const downloadButtons = [
-            { id: 'downloadBtn1', counterId: 'downloadCount1', storageKey: 'paper1DownloadCount' },
-            { id: 'downloadBtn2', counterId: 'downloadCount2', storageKey: 'paper2DownloadCount' },
-            { id: 'downloadBtn3', counterId: 'downloadCount3', storageKey: 'paper3DownloadCount' },
-            { id: 'downloadBtn4', counterId: 'downloadCount4', storageKey: 'paper4DownloadCount' },
-            { id: 'downloadBtn5', counterId: 'downloadCount5', storageKey: 'paper5DownloadCount' }
-        ];
-
-        // Initialize counters
-        downloadButtons.forEach(button => {
-            let downloadCount = localStorage.getItem(button.storageKey) || 0;
-            document.getElementById(button.counterId).textContent = downloadCount;
-            
-            // Add click event listener
-            document.getElementById(button.id).addEventListener('click', function() {
-                downloadCount++;
-                localStorage.setItem(button.storageKey, downloadCount);
-                document.getElementById(button.counterId).textContent = downloadCount;
-            });
-        });
-
         // Client-side search and filter
         const chips = document.querySelectorAll('.chip[data-filter]');
         const searchInput = document.getElementById('codesSearch');
