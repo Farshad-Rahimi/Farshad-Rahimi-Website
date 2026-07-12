@@ -89,6 +89,8 @@
         .citation-count { display:inline-flex; align-items:center; gap:8px; margin-top:12px; padding:7px 10px; border:1px solid #bbf7d0; border-radius:999px; color:#166534; background:#f0fdf4; text-decoration:none; font-size:.75rem; font-weight:800; }
         .citation-count:hover { color:#14532d; border-color:#86efac; background:#dcfce7; }
         .citation-count small { color:#4b5563; font-size:.66rem; font-weight:600; }
+        .citation-count.scholar-search { color:#1e40af; border-color:#bfdbfe; background:#eff6ff; }
+        .citation-count.scholar-search:hover { color:#1e3a8a; border-color:#93c5fd; background:#dbeafe; }
         .pub-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
         .pub-button { display:inline-flex; align-items:center; gap:7px; padding:8px 11px; border:1px solid var(--pub-line); border-radius:9px; color:var(--pub-ink); background:white; font:inherit; text-decoration:none; font-size:.76rem; font-weight:800; cursor:pointer; }
         .pub-button:hover { color:var(--pub-blue); border-color:#93c5fd; }
@@ -248,6 +250,20 @@
             chip.classList.add('active'); chip.setAttribute('aria-pressed','true'); activeFilter = chip.dataset.filter; filterPublications();
         }));
         search.addEventListener('input', filterPublications);
+
+        cards.forEach(card => {
+            if (card.querySelector('.citation-count')) return;
+            const title = card.querySelector('.pub-title').textContent.trim();
+            const scholarUrl = `https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=${encodeURIComponent(title)}&btnG=`;
+            const scholarLink = document.createElement('a');
+            scholarLink.className = 'citation-count scholar-search';
+            scholarLink.href = scholarUrl;
+            scholarLink.target = '_blank';
+            scholarLink.rel = 'noopener noreferrer';
+            scholarLink.title = `Find “${title}” and its citations in Google Scholar`;
+            scholarLink.innerHTML = '<i class="fas fa-graduation-cap"></i> Google Scholar · View citations';
+            card.querySelector('.pub-identifier').insertAdjacentElement('afterend', scholarLink);
+        });
 
         function cardData(button) {
             const card = button.closest('.publication-card');
