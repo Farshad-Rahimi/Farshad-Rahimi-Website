@@ -3,607 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Publications - Farshad Rahimi</title>
+    <meta name="description" content="Peer-reviewed journal and conference publications by Farshad Rahimi in fault-tolerant control, distributed estimation, multi-agent systems, robotics, and learning-based control.">
+    <meta name="theme-color" content="#071124">
+    <meta property="og:title" content="Research Publications | Farshad Rahimi">
+    <meta property="og:description" content="Journal articles, conference papers, research code, and ongoing work in control engineering and robotics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://farshad-rahimi.com/publications.html">
+    <meta property="og:image" content="https://farshad-rahimi.com/images/farshad-profile.jpg">
+    <link rel="canonical" href="https://farshad-rahimi.com/publications.html">
+    <title>Research Publications | Farshad Rahimi</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Research Publications",
+      "url": "https://farshad-rahimi.com/publications.html",
+      "author": {"@type": "Person", "name": "Farshad Rahimi"},
+      "about": ["Fault-tolerant control", "Distributed estimation", "Multi-agent systems", "Robotics", "Learning-based control"]
+    }
+    </script>
     <style>
-        .publication-section {
-            margin-bottom: 4rem;
-            scroll-margin-top: 110px;
-        }
+        :root { --pub-ink:#0b132b; --pub-muted:#5d6b82; --pub-line:#dfe6f1; --pub-blue:#2563eb; --pub-violet:#7c3aed; --pub-green:#047857; --pub-amber:#b45309; --pub-surface:#f4f7fb; }
+        body { background: var(--pub-surface); }
+        .pub-hero { position:relative; overflow:hidden; padding:150px 20px 85px; color:white; background:radial-gradient(circle at 86% 20%,rgba(167,139,250,.24),transparent 26%),radial-gradient(circle at 10% 100%,rgba(96,165,250,.18),transparent 29%),linear-gradient(135deg,#071124 0%,#172554 57%,#3b1d70 100%); }
+        .pub-hero::after { content:"¶"; position:absolute; right:7%; bottom:-120px; color:rgba(255,255,255,.055); font-size:24rem; font-family:Georgia,serif; pointer-events:none; }
+        .pub-hero-inner { position:relative; z-index:1; max-width:1120px; margin:auto; }
+        .pub-eyebrow { margin-bottom:16px; color:#c4b5fd; font-size:.78rem; font-weight:800; letter-spacing:.16em; }
+        .pub-hero h1 { max-width:850px; margin:0; font-size:clamp(2.8rem,7vw,5.5rem); line-height:1.01; letter-spacing:-.058em; }
+        .pub-lead { max-width:740px; margin:24px 0 0; color:#e0e7ff; font-size:1.12rem; line-height:1.75; }
+        .pub-stats { display:flex; flex-wrap:wrap; gap:11px; margin-top:34px; }
+        .pub-stat { min-width:140px; padding:13px 17px; border:1px solid rgba(255,255,255,.2); border-radius:14px; background:rgba(255,255,255,.08); backdrop-filter:blur(10px); }
+        .pub-stat strong { display:block; font-size:1.15rem; }
+        .pub-stat span { color:#ddd6fe; font-size:.78rem; }
+        .scholar-button { display:inline-flex; align-items:center; gap:9px; margin-top:25px; padding:11px 16px; border-radius:11px; color:#172554; background:white; text-decoration:none; font-size:.86rem; font-weight:800; }
+        .scholar-button:hover { color:var(--pub-blue); transform:translateY(-1px); }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+        .pub-main { max-width:1120px; margin:auto; padding:46px 20px 92px; }
+        .section-kicker-pub { margin:0 0 10px; color:var(--pub-violet); font-size:.75rem; font-weight:800; letter-spacing:.15em; }
+        .pub-section-title { margin:0; color:var(--pub-ink); font-size:clamp(1.9rem,4vw,2.8rem); letter-spacing:-.04em; }
+        .section-intro { max-width:700px; margin:13px 0 0; color:var(--pub-muted); line-height:1.7; }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
+        .review-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:25px; }
+        .review-card { padding:25px; border:1px solid #fde68a; border-radius:19px; background:linear-gradient(145deg,#fffbeb,#fff); box-shadow:0 12px 35px rgba(120,53,15,.06); }
+        .review-status { display:inline-flex; align-items:center; gap:7px; padding:6px 10px; border-radius:999px; color:#92400e; background:#fef3c7; font-size:.71rem; font-weight:800; }
+        .review-card h3 { margin:17px 0 12px; color:var(--pub-ink); font-size:1.16rem; line-height:1.42; }
+        .review-card p { margin:0; color:var(--pub-muted); font-size:.88rem; line-height:1.65; }
+        .review-code { display:inline-flex; align-items:center; gap:7px; margin-top:18px; color:var(--pub-green); text-decoration:none; font-size:.82rem; font-weight:800; }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .published-section { margin-top:72px; }
+        .pub-toolbar { position:sticky; top:76px; z-index:20; display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.8fr); gap:14px; margin:27px 0 24px; padding:14px; border:1px solid var(--pub-line); border-radius:18px; background:rgba(255,255,255,.93); box-shadow:0 12px 35px rgba(11,19,43,.08); backdrop-filter:blur(14px); }
+        .filter-chips { display:flex; flex-wrap:wrap; gap:7px; }
+        .chip { padding:8px 12px; border:1px solid var(--pub-line); border-radius:999px; color:#374151; background:white; font:inherit; font-size:.78rem; font-weight:800; cursor:pointer; }
+        .chip:hover { color:var(--pub-blue); border-color:#93c5fd; }
+        .chip.active { color:white; border-color:var(--pub-blue); background:var(--pub-blue); }
+        .search-box { display:flex; align-items:center; gap:9px; padding:9px 12px; border:1px solid var(--pub-line); border-radius:11px; background:white; }
+        .search-box i { color:#94a3b8; }
+        .search-input { width:100%; border:0; outline:0; background:transparent; font:inherit; }
+        .results-line { display:flex; justify-content:space-between; gap:18px; align-items:center; margin-bottom:17px; color:var(--pub-muted); font-size:.86rem; }
+        .sort-note { font-size:.77rem; }
 
-        .publication-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .publication-list { display:grid; gap:15px; }
+        .publication-card { display:grid; grid-template-columns:82px minmax(0,1fr); overflow:hidden; border:1px solid var(--pub-line); border-radius:20px; background:white; box-shadow:0 10px 30px rgba(11,19,43,.055); transition:.22s ease; }
+        .publication-card[hidden] { display:none !important; }
+        .publication-card:hover { transform:translateY(-2px); border-color:#c4b5fd; box-shadow:0 17px 42px rgba(11,19,43,.09); }
+        .year-rail { display:flex; flex-direction:column; align-items:center; padding:22px 10px; color:white; background:linear-gradient(180deg,#1d4ed8,#4338ca); }
+        .year-rail strong { font-size:1.02rem; }
+        .year-rail span { margin-top:7px; writing-mode:vertical-rl; color:#c7d2fe; font-size:.66rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+        .publication-body { padding:23px 25px; }
+        .pub-topline { display:flex; flex-wrap:wrap; justify-content:space-between; gap:9px; margin-bottom:12px; }
+        .pub-badges { display:flex; flex-wrap:wrap; gap:7px; }
+        .pub-badge { padding:5px 9px; border-radius:999px; font-size:.68rem; font-weight:800; }
+        .pub-badge.journal { color:#1e40af; background:#dbeafe; }
+        .pub-badge.conference { color:#065f46; background:#d1fae5; }
+        .pub-badge.code { color:#5b21b6; background:#ede9fe; }
+        .pub-topic { color:#64748b; font-size:.74rem; font-weight:700; }
+        .pub-title { margin:0 0 10px; color:var(--pub-ink); font-size:1.17rem; line-height:1.42; letter-spacing:-.015em; }
+        .pub-authors { margin:0 0 7px; color:#64748b; font-size:.84rem; }
+        .pub-authors strong { color:var(--pub-green); }
+        .pub-venue { margin:0; color:#334155; font-size:.86rem; font-weight:700; line-height:1.55; }
+        .pub-identifier { display:flex; align-items:flex-start; gap:8px; margin-top:11px; color:#64748b; font-size:.78rem; overflow-wrap:anywhere; }
+        .pub-identifier i { margin-top:2px; color:var(--pub-violet); }
+        .pub-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+        .pub-button { display:inline-flex; align-items:center; gap:7px; padding:8px 11px; border:1px solid var(--pub-line); border-radius:9px; color:var(--pub-ink); background:white; font:inherit; text-decoration:none; font-size:.76rem; font-weight:800; cursor:pointer; }
+        .pub-button:hover { color:var(--pub-blue); border-color:#93c5fd; }
+        .pub-button.primary { color:white; border-color:var(--pub-blue); background:var(--pub-blue); }
+        .pub-button.code-link { color:#5b21b6; border-color:#ddd6fe; background:#f5f3ff; }
+        .empty-state { display:none; padding:48px 20px; border:1px dashed #cbd5e1; border-radius:18px; color:var(--pub-muted); background:white; text-align:center; }
 
-        .publication-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
+        .coauthors { margin-top:72px; }
+        .coauthor-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:24px; }
+        .coauthor { display:flex; align-items:center; gap:12px; padding:15px; border:1px solid var(--pub-line); border-radius:14px; background:white; }
+        .coauthor-mark { display:grid; place-items:center; flex:0 0 38px; height:38px; border-radius:11px; color:#5b21b6; background:#ede9fe; font-size:.78rem; font-weight:800; }
+        .coauthor span { color:#334155; font-size:.87rem; font-weight:700; }
 
-        .publication-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #1f2937;
-            line-height: 1.4;
-        }
+        .toast { position:fixed; right:20px; bottom:20px; z-index:1000; padding:11px 15px; border-radius:10px; color:white; background:#0f172a; box-shadow:0 12px 35px rgba(0,0,0,.22); font-size:.82rem; font-weight:700; opacity:0; transform:translateY(10px); pointer-events:none; transition:.2s ease; }
+        .toast.show { opacity:1; transform:translateY(0); }
 
-        .publication-authors {
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .author-name {
-            color: #10b981;
-            font-weight: 600;
-        }
-
-        .publication-journal {
-            color: #2563eb;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .publication-doi {
-            color: #059669;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .publication-doi a {
-            color: #059669;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .publication-doi a:hover {
-            color: #047857;
-        }
-
-        .publication-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .publication-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .publication-link:hover {
-            color: #1d4ed8;
-        }
-
-        .empty-section {
-            text-align: center;
-            padding: 3rem;
-            color: #6b7280;
-            font-style: italic;
-        }
-
-        .scholar-link-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .scholar-link-box {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: #10b981;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-        }
-
-        .scholar-link-box:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-            color: white;
-        }
-
-        .scholar-link-box i {
-            font-size: 1.2rem;
-        }
-
-        /* Quick Navigation */
-        .quick-nav {
-            margin-top: 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .quick-card {
-            background: white;
-            color: #1f2937;
-            text-decoration: none;
-            border-radius: 12px;
-            padding: 1rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #e5e7eb;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .quick-card i {
-            width: 28px;
-            height: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: white;
-            font-size: 0.95rem;
-        }
-
-        .icon-review { background: #f59e0b; }
-        .icon-journal { background: #2563eb; }
-        .icon-conference { background: #10b981; }
-        .icon-coauthors { background: #8b5cf6; }
-
-        .quick-card-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        /* Co-authors */
-        .coauthors-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .coauthor-chip {
-            background: #f3f4f6;
-            color: #374151;
-            padding: 0.5rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #e5e7eb;
-        }
+        @media(max-width:850px) { .pub-toolbar { position:static; grid-template-columns:1fr; } .review-grid { grid-template-columns:1fr; } .coauthor-grid { grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:560px) { .pub-hero { padding-top:125px; } .publication-card { grid-template-columns:1fr; } .year-rail { flex-direction:row; justify-content:space-between; padding:10px 16px; } .year-rail span { margin:0; writing-mode:horizontal-tb; } .publication-body { padding:20px; } .coauthor-grid { grid-template-columns:1fr; } .pub-button { flex:1 1 auto; justify-content:center; } .sort-note { display:none; } }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <a class="skip-link" href="#publications">Skip to publications</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Farshad Rahimi</h2>
-            </div>
+            <a class="nav-logo" href="index.html" aria-label="Farshad Rahimi home"><h2>FR.</h2></a>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="publications.html" class="nav-link active">My Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="ros-simulations.html" class="nav-link">ROS Simulations</a>
-                </li>
-                <li class="nav-item">
-                    <a href="codes.html" class="nav-link">Research Code</a>
-                </li>
-                <li class="nav-item">
-                    <a href="cv.html" class="nav-link">CV</a>
-                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="publications.html" class="nav-link active" aria-current="page">Publications</a></li>
+                <li class="nav-item"><a href="ros-simulations.html" class="nav-link">ROS Simulations</a></li>
+                <li class="nav-item"><a href="codes.html" class="nav-link">Research Code</a></li>
+                <li class="nav-item"><a href="cv.html" class="nav-link">CV</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="hamburger" type="button" aria-label="Open navigation" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
         </div>
     </nav>
 
-    <!-- Publications Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Publications</h1>
-            
-            <!-- Google Scholar Link Box -->
-            <div class="scholar-link-container" style="margin-top: 1.5rem;">
-                <a href="https://scholar.google.com/citations?hl=en&user=KOzMTRsAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" class="scholar-link-box" style="background: #2563eb; box-shadow: 0 4px 15px rgba(37,99,235,0.35);">
-                    <i class="fas fa-graduation-cap"></i>
-                    View on Google Scholar
-                </a>
+    <header class="pub-hero">
+        <div class="pub-hero-inner">
+            <p class="pub-eyebrow">CONTROL ENGINEERING · ROBOTICS · INTELLIGENT SYSTEMS</p>
+            <h1>Research publications and ongoing work.</h1>
+            <p class="pub-lead">Peer-reviewed research in fault-tolerant control, distributed estimation, multi-agent systems, robotics, and learning-based methods.</p>
+            <div class="pub-stats" aria-label="Publication summary">
+                <div class="pub-stat"><strong>11</strong><span>journal articles</span></div>
+                <div class="pub-stat"><strong>3</strong><span>conference papers</span></div>
+                <div class="pub-stat"><strong>2</strong><span>under review</span></div>
+                <div class="pub-stat"><strong>6</strong><span>with open code</span></div>
             </div>
-
-            <!-- Quick Navigation Cards -->
-            <div class="quick-nav" aria-label="Quick navigation">
-                <a class="quick-card" href="#under-reviewing" aria-label="Jump to Under Reviewing Papers">
-                    <i class="fas fa-hourglass-half icon-review"></i>
-                    <span class="quick-card-title">Under Reviewing</span>
-                </a>
-                <a class="quick-card" href="#journal-papers" aria-label="Jump to Journal Papers">
-                    <i class="fas fa-book icon-journal"></i>
-                    <span class="quick-card-title">Journal Papers</span>
-                </a>
-                <a class="quick-card" href="#conference-papers" aria-label="Jump to Conference Papers">
-                    <i class="fas fa-podium icon-conference"></i>
-                    <span class="quick-card-title">Conference Papers</span>
-                </a>
-                <a class="quick-card" href="#co-authors" aria-label="Jump to Co-authors">
-                    <i class="fas fa-users icon-coauthors"></i>
-                    <span class="quick-card-title">Co-authors</span>
-                </a>
-            </div>
+            <a class="scholar-button" href="https://scholar.google.com/citations?hl=en&amp;user=KOzMTRsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> View Google Scholar</a>
         </div>
-    </section>
+    </header>
 
-    <!-- Publications Section -->
-    <section class="publications">
-        <div class="container">
-            <!-- Under Reviewing Papers -->
-            <div id="under-reviewing" class="publication-section" style="background: #f0f7ff; border-left: 6px solid #2563eb; border-radius: 18px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 2rem 1.5rem 1.5rem 1.5rem; margin-bottom: 3rem;">
-                <div class="section-header">
-                    <h2 class="section-title" style="color: #2563eb;">Under Reviewing Papers</h2>
-                    <p class="section-subtitle" style="color: #2563eb;">Papers currently under review in various journals and conferences</p>
-                </div>
-                <div class="publications-content">
-                    <div class="reviewing-paper-item" style="background: #eaf1fb; border-radius: 12px; margin-bottom: 1.5rem; padding: 1.5rem 1.2rem; box-shadow: 0 2px 8px rgba(37,99,235,0.06);">
-                        <h3 style="font-size: 1.25rem; color: #1d4ed8; margin-bottom: 0.5rem;">Distributed Cooperative Optimization-Based Control with Active Topology Switching for Cyber-Physical Vehicle Systems</h3>
-                        <p class="publication-authors" style="color: #2563eb; font-style: normal; margin-bottom: 0.3rem;">
-                            <span class="author-name" style="color: #059669;">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal" style="color: #1e293b; font-weight: 500;">Submitting to: IEEE Transactions on Vehicular Technology</p>
-                    </div>
-                    <div class="reviewing-paper-item" style="background: #eaf1fb; border-radius: 12px; margin-bottom: 1.5rem; padding: 1.5rem 1.2rem; box-shadow: 0 2px 8px rgba(37,99,235,0.06);">
-                        <h3 style="font-size: 1.25rem; color: #1d4ed8; margin-bottom: 0.5rem;">Dynamic Event-Triggered Fault-Tolerant Control for Nonlinear Systems via Critic Learning</h3>
-                        <p class="publication-authors" style="color: #2563eb; font-style: normal; margin-bottom: 0.3rem;">
-                            <span class="author-name" style="color: #059669;">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal" style="color: #1e293b; font-weight: 500;">Journal of Control and Decision</p>
-                    </div>
-                    <div class="reviewing-paper-item" style="background: #eaf1fb; border-radius: 12px; margin-bottom: 1.5rem; padding: 1.5rem 1.2rem; box-shadow: 0 2px 8px rgba(37,99,235,0.06);">
-                        <h3 style="font-size: 1.25rem; color: #1d4ed8; margin-bottom: 0.5rem;">Online Critic Learning for Delay-Aware Chemotherapy Drug Dosing Optimization</h3>
-                        <p class="publication-authors" style="color: #2563eb; font-style: normal; margin-bottom: 0.3rem;">
-                            <span class="author-name" style="color: #059669;">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal" style="color: #1e293b; font-weight: 500;">Scientific Reports</p>
-                    </div>
-                </div>
+    <main id="publications" class="pub-main">
+        <section aria-labelledby="review-title">
+            <p class="section-kicker-pub">ONGOING RESEARCH</p>
+            <h2 id="review-title" class="pub-section-title">Under review</h2>
+            <p class="section-intro">Current manuscripts under editorial and peer-review consideration.</p>
+            <div class="review-grid">
+                <article class="review-card"><span class="review-status"><i class="fas fa-hourglass-half"></i> Under review</span><h3>Distributed Cooperative Optimization-Based Control with Active Topology Switching for Cyber-Physical Vehicle Systems</h3><p>Target venue: IEEE Transactions on Vehicular Technology</p></article>
+                <article class="review-card"><span class="review-status"><i class="fas fa-hourglass-half"></i> Under review</span><h3>Online Critic Learning for Delay-Aware Chemotherapy Drug Dosing Optimization</h3><p>Target venue: Scientific Reports</p><a class="review-code" href="codes.html#chemotherapy"><i class="fas fa-code"></i> Code available</a></article>
             </div>
+        </section>
 
-            <!-- Journal Papers -->
-            <div id="journal-papers" class="publication-section">
-                <div class="section-header">
-                    <h2 class="section-title">Journal Papers</h2>
-                    <p class="section-subtitle">Published papers in peer-reviewed journals</p>
+        <section class="published-section" aria-labelledby="published-title">
+            <p class="section-kicker-pub">PEER-REVIEWED OUTPUT</p>
+            <h2 id="published-title" class="pub-section-title">Published work</h2>
+            <p class="section-intro">Search by title, venue, author, or topic. Results are ordered from newest to oldest.</p>
+
+            <div class="pub-toolbar">
+                <div class="filter-chips" aria-label="Filter publications by topic">
+                    <button class="chip active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="chip" type="button" data-filter="learning" aria-pressed="false">Learning control</button>
+                    <button class="chip" type="button" data-filter="estimation" aria-pressed="false">Estimation</button>
+                    <button class="chip" type="button" data-filter="multi-agent" aria-pressed="false">Multi-agent</button>
+                    <button class="chip" type="button" data-filter="robotics" aria-pressed="false">Robotics</button>
                 </div>
-                <div class="publications-content">
-                    <div class="publication-item">
-                        <h3>Fault-tolerant control for nonlinear time-delay systems using neural network observers</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal">International Journal of Dynamics and Control, 2025</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://doi.org/10.1007/s40435-024-01536-y" target="_blank" rel="noopener noreferrer">
-                                DOI: https://doi.org/10.1007/s40435-024-01536-y
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://link.springer.com/article/10.1007/s40435-024-01536-y" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>An online fault-tolerant control approach based on policy iteration algorithm for nonlinear time-delay systems</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal">International Journal of Systems Science, 2024</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://doi.org/10.1080/00207721.2024.2440785" target="_blank" rel="noopener noreferrer">
-                                DOI: https://doi.org/10.1080/00207721.2024.2440785
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://www.tandfonline.com/doi/full/10.1080/00207721.2024.2440785" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>Adaptive dynamic programming-based fault tolerant control for nonlinear time-delay systems</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal">Chaos, Solitons & Fractals, 188 (2024): 115544</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0960077924010968" target="_blank" rel="noopener noreferrer">
-                                DOI: https://www.sciencedirect.com/science/article/abs/pii/S0960077924010968
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0960077924010968" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>A Distributed Fault Estimation Approach for a Class of Continuous-time Nonlinear Networked Systems Subject to Communication Delays</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and H. Rezaei
-                        </p>
-                        <p class="publication-journal">IEEE Control Systems Letters, 6 (2021): 295-300</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9397783" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ieeexplore.ieee.org/abstract/document/9397783
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9397783" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>An event-triggered recursive state estimation approach for time-varying nonlinear complex networks with quantization effects</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and H. Rezaei
-                        </p>
-                        <p class="publication-journal">Neurocomputing, 426 (2021): 104-113</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231220316088" target="_blank" rel="noopener noreferrer">
-                                DOI: https://www.sciencedirect.com/science/article/abs/pii/S0925231220316088
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231220316088" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>Neighborhood-Based Distributed Robust Unknown Input Observer for Fault Estimation in Nonlinear Networked Systems</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and Sh. Ahmadpour
-                        </p>
-                        <p class="publication-journal">IET Control Theory & Applications, 16.10 (2022): 972-984</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12278" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12278
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12278" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>A Scalable Distributed State Estimation for a Class of State-Saturated Systems Subject to Quantization Effects</h3>
-                        <p class="publication-authors">
-                            Rezaei, H., Farnam, A., <span class="author-name">Farshad Rahimi</span>, and Guillaume, C.
-                        </p>
-                        <p class="publication-journal">IEEE Access, 9 (2021): 138724-138733</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9562519" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ieeexplore.ieee.org/abstract/document/9562519
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9562519" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>Neighborhood-Based Event-Triggered Distributed Fault Estimation Observer for Multi-Agent Systems</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and Shahi, H.
-                        </p>
-                        <p class="publication-journal">AUT Journal of Electrical Engineering, 54.2 (2022): 281-294</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://eej.aut.ac.ir/article_4854.html" target="_blank" rel="noopener noreferrer">
-                                DOI: https://eej.aut.ac.ir/article_4854.html
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://eej.aut.ac.ir/article_4854.html" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>A Distributed Optimization Approach for Multi-Agent Systems over Delaying Networks</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>
-                        </p>
-                        <p class="publication-journal">International Journal of Information and Communication Technology Research, 13.4 (2021): 18-27</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="http://ijict.itrc.ac.ir/article-1-495-en.html" target="_blank" rel="noopener noreferrer">
-                                DOI: http://ijict.itrc.ac.ir/article-1-495-en.html
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="http://ijict.itrc.ac.ir/article-1-495-en.html" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>Estimating tolerable communication delays for distributed optimization problems in control of heterogeneous multi-agent systems</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and Reza Mahboobi Esfanjani
-                        </p>
-                        <p class="publication-journal">IET Control Theory & Applications, 18.5 (2024): 626-639</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12595" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12595
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/cth2.12595" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <label class="search-box" for="publicationSearch"><i class="fas fa-search"></i><input id="publicationSearch" class="search-input" type="search" placeholder="Search publications…"></label>
             </div>
+            <div class="results-line"><span><strong id="resultCount">14</strong> publications</span><span class="sort-note">Sorted by year · newest first</span></div>
 
-            <!-- Conference Papers -->
-            <div id="conference-papers" class="publication-section">
-                <div class="section-header">
-                    <h2 class="section-title">Conference Papers</h2>
-                    <p class="section-subtitle">Papers presented at international conferences and symposiums</p>
-                </div>
-                <div class="publications-content">
-                    <div class="publication-item">
-                        <h3>A reinforcement learning-based control approach for tracking problem of a class of nonlinear systems: applied to a single-link manipulator</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, Sepideh Ziaei, and Reza Mahboobi Esfanjani
-                        </p>
-                        <p class="publication-journal">2023 31st International Conference on Electrical Engineering (ICEE). IEEE, 2023</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/10334874" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ieeexplore.ieee.org/abstract/document/10334874
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/10334874" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>A Distributed Dual Decomposition Optimization Approach for Coordination of Networked Mobile Robots with Communication Delay</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and Reza Mahboobi Esfanjani
-                        </p>
-                        <p class="publication-journal">2021 9th RSI International Conference on Robotics and Mechatronics (ICRoM). IEEE, 2021</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9663474" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ieeexplore.ieee.org/abstract/document/9663474
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/9663474" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <h3>Distributed predictive control for formation of networked mobile robots</h3>
-                        <p class="publication-authors">
-                            <span class="author-name">Farshad Rahimi</span>, and Reza Mahboobi Esfanjani
-                        </p>
-                        <p class="publication-journal">2018 6th RSI International Conference on Robotics and Mechatronics (IcRoM). IEEE, 2018</p>
-                        <div class="publication-doi">
-                            <i class="fas fa-link"></i>
-                            <a href="https://ieeexplore.ieee.org/abstract/document/8657625" target="_blank" rel="noopener noreferrer">
-                                DOI: https://ieeexplore.ieee.org/abstract/document/8657625
-                            </a>
-                        </div>
-                        <div class="publication-links">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/8657625" target="_blank" rel="noopener noreferrer" class="publication-link">
-                                <i class="fas fa-external-link-alt"></i> View Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="publication-list">
+                <article class="publication-card" data-topic="learning" data-year="2025" data-type="article" data-key="rahimi2025dynamic" data-doi="10.1080/23307706.2025.2532018">
+                    <div class="year-rail"><strong>2025</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span><span class="pub-badge code">Code available</span></div><span class="pub-topic">Learning-based control</span></div><h3 class="pub-title">Dynamic Event-Triggered Fault-Tolerant Control for Nonlinear Systems via Critic Learning</h3><p class="pub-authors"><strong>Farshad Rahimi</strong></p><p class="pub-venue">Journal of Control and Decision, 2025</p><p class="pub-identifier"><i class="fas fa-fingerprint"></i>10.1080/23307706.2025.2532018</p><div class="pub-actions"><a class="pub-button primary" href="https://doi.org/10.1080/23307706.2025.2532018" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View paper</a><a class="pub-button code-link" href="codes.html#dynamic-event-triggered"><i class="fas fa-code"></i> Research code</a><button class="pub-button copy-citation" type="button"><i class="fas fa-quote-left"></i> Citation</button><button class="pub-button copy-bibtex" type="button"><i class="fas fa-copy"></i> BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="learning estimation" data-year="2025" data-type="article" data-key="rahimi2025neural" data-doi="10.1007/s40435-024-01536-y">
+                    <div class="year-rail"><strong>2025</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span><span class="pub-badge code">Code available</span></div><span class="pub-topic">Fault-tolerant control</span></div><h3 class="pub-title">Fault-Tolerant Control for Nonlinear Time-Delay Systems Using Neural Network Observers</h3><p class="pub-authors"><strong>Farshad Rahimi</strong></p><p class="pub-venue">International Journal of Dynamics and Control, 2025</p><p class="pub-identifier"><i class="fas fa-fingerprint"></i>10.1007/s40435-024-01536-y</p><div class="pub-actions"><a class="pub-button primary" href="https://doi.org/10.1007/s40435-024-01536-y" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View paper</a><a class="pub-button code-link" href="codes.html#neural-observer"><i class="fas fa-code"></i> Research code</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="learning" data-year="2024" data-type="article" data-key="rahimi2024policy" data-doi="10.1080/00207721.2024.2440785">
+                    <div class="year-rail"><strong>2024</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span><span class="pub-badge code">Code available</span></div><span class="pub-topic">Learning-based control</span></div><h3 class="pub-title">An Online Fault-Tolerant Control Approach Based on Policy Iteration Algorithm for Nonlinear Time-Delay Systems</h3><p class="pub-authors"><strong>Farshad Rahimi</strong></p><p class="pub-venue">International Journal of Systems Science, 2024</p><p class="pub-identifier"><i class="fas fa-fingerprint"></i>10.1080/00207721.2024.2440785</p><div class="pub-actions"><a class="pub-button primary" href="https://doi.org/10.1080/00207721.2024.2440785" target="_blank" rel="noopener noreferrer">View paper</a><a class="pub-button code-link" href="codes.html#policy-iteration"><i class="fas fa-code"></i> Research code</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="learning" data-year="2024" data-type="article" data-key="rahimi2024adp" data-url="https://www.sciencedirect.com/science/article/abs/pii/S0960077924010968">
+                    <div class="year-rail"><strong>2024</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span><span class="pub-badge code">Code available</span></div><span class="pub-topic">Adaptive dynamic programming</span></div><h3 class="pub-title">Adaptive Dynamic Programming-Based Fault-Tolerant Control for Nonlinear Time-Delay Systems</h3><p class="pub-authors"><strong>Farshad Rahimi</strong></p><p class="pub-venue">Chaos, Solitons &amp; Fractals, 188 (2024): 115544</p><p class="pub-identifier"><i class="fas fa-link"></i>Article link</p><div class="pub-actions"><a class="pub-button primary" href="https://www.sciencedirect.com/science/article/abs/pii/S0960077924010968" target="_blank" rel="noopener noreferrer">View paper</a><a class="pub-button code-link" href="codes.html#adp-time-delay"><i class="fas fa-code"></i> Research code</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="multi-agent" data-year="2024" data-type="article" data-key="rahimi2024delays" data-doi="10.1049/cth2.12595">
+                    <div class="year-rail"><strong>2024</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Multi-agent systems</span></div><h3 class="pub-title">Estimating Tolerable Communication Delays for Distributed Optimization Problems in Control of Heterogeneous Multi-Agent Systems</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, Reza Mahboobi Esfanjani</p><p class="pub-venue">IET Control Theory &amp; Applications, 18.5 (2024): 626–639</p><p class="pub-identifier"><i class="fas fa-fingerprint"></i>10.1049/cth2.12595</p><div class="pub-actions"><a class="pub-button primary" href="https://doi.org/10.1049/cth2.12595" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="learning robotics" data-year="2023" data-type="conference" data-key="rahimi2023reinforcement" data-url="https://ieeexplore.ieee.org/abstract/document/10334874">
+                    <div class="year-rail"><strong>2023</strong><span>Conference</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge conference">Conference paper</span></div><span class="pub-topic">Reinforcement learning</span></div><h3 class="pub-title">A Reinforcement Learning-Based Control Approach for Tracking of Nonlinear Systems: Applied to a Single-Link Manipulator</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, Sepideh Ziaei, Reza Mahboobi Esfanjani</p><p class="pub-venue">31st International Conference on Electrical Engineering (ICEE), IEEE, 2023</p><p class="pub-identifier"><i class="fas fa-link"></i>IEEE Xplore article</p><div class="pub-actions"><a class="pub-button primary" href="https://ieeexplore.ieee.org/abstract/document/10334874" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="estimation" data-year="2022" data-type="article" data-key="rahimi2022unknown" data-doi="10.1049/cth2.12278">
+                    <div class="year-rail"><strong>2022</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Fault estimation</span></div><h3 class="pub-title">Neighborhood-Based Distributed Robust Unknown Input Observer for Fault Estimation in Nonlinear Networked Systems</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, Sh. Ahmadpour</p><p class="pub-venue">IET Control Theory &amp; Applications, 16.10 (2022): 972–984</p><p class="pub-identifier"><i class="fas fa-fingerprint"></i>10.1049/cth2.12278</p><div class="pub-actions"><a class="pub-button primary" href="https://doi.org/10.1049/cth2.12278" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="estimation multi-agent" data-year="2022" data-type="article" data-key="rahimi2022event" data-url="https://eej.aut.ac.ir/article_4854.html">
+                    <div class="year-rail"><strong>2022</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Distributed fault estimation</span></div><h3 class="pub-title">Neighborhood-Based Event-Triggered Distributed Fault Estimation Observer for Multi-Agent Systems</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, H. Shahi</p><p class="pub-venue">AUT Journal of Electrical Engineering, 54.2 (2022): 281–294</p><p class="pub-identifier"><i class="fas fa-link"></i>Journal article link</p><div class="pub-actions"><a class="pub-button primary" href="https://eej.aut.ac.ir/article_4854.html" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="estimation" data-year="2021" data-type="article" data-key="rahimi2021fault" data-url="https://ieeexplore.ieee.org/abstract/document/9397783">
+                    <div class="year-rail"><strong>2021</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Fault estimation</span></div><h3 class="pub-title">A Distributed Fault Estimation Approach for Continuous-Time Nonlinear Networked Systems Subject to Communication Delays</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, H. Rezaei</p><p class="pub-venue">IEEE Control Systems Letters, 6 (2021): 295–300</p><p class="pub-identifier"><i class="fas fa-link"></i>IEEE Xplore article</p><div class="pub-actions"><a class="pub-button primary" href="https://ieeexplore.ieee.org/abstract/document/9397783" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="estimation" data-year="2021" data-type="article" data-key="rahimi2021recursive" data-url="https://www.sciencedirect.com/science/article/abs/pii/S0925231220316088">
+                    <div class="year-rail"><strong>2021</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">State estimation</span></div><h3 class="pub-title">An Event-Triggered Recursive State Estimation Approach for Time-Varying Nonlinear Complex Networks with Quantization Effects</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, H. Rezaei</p><p class="pub-venue">Neurocomputing, 426 (2021): 104–113</p><p class="pub-identifier"><i class="fas fa-link"></i>ScienceDirect article</p><div class="pub-actions"><a class="pub-button primary" href="https://www.sciencedirect.com/science/article/abs/pii/S0925231220316088" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="estimation multi-agent" data-year="2021" data-type="article" data-key="rezaei2021scalable" data-url="https://ieeexplore.ieee.org/abstract/document/9562519">
+                    <div class="year-rail"><strong>2021</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Distributed state estimation</span></div><h3 class="pub-title">A Scalable Distributed State Estimation for State-Saturated Systems Subject to Quantization Effects</h3><p class="pub-authors">H. Rezaei, A. Farnam, <strong>Farshad Rahimi</strong>, C. Guillaume</p><p class="pub-venue">IEEE Access, 9 (2021): 138724–138733</p><p class="pub-identifier"><i class="fas fa-link"></i>IEEE Xplore article</p><div class="pub-actions"><a class="pub-button primary" href="https://ieeexplore.ieee.org/abstract/document/9562519" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="multi-agent" data-year="2021" data-type="article" data-key="rahimi2021optimization" data-url="http://ijict.itrc.ac.ir/article-1-495-en.html">
+                    <div class="year-rail"><strong>2021</strong><span>Journal</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge journal">Journal article</span></div><span class="pub-topic">Distributed optimization</span></div><h3 class="pub-title">A Distributed Optimization Approach for Multi-Agent Systems over Delaying Networks</h3><p class="pub-authors"><strong>Farshad Rahimi</strong></p><p class="pub-venue">International Journal of Information and Communication Technology Research, 13.4 (2021): 18–27</p><p class="pub-identifier"><i class="fas fa-link"></i>Journal article link</p><div class="pub-actions"><a class="pub-button primary" href="http://ijict.itrc.ac.ir/article-1-495-en.html" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="robotics multi-agent" data-year="2021" data-type="conference" data-key="rahimi2021dual" data-url="https://ieeexplore.ieee.org/abstract/document/9663474">
+                    <div class="year-rail"><strong>2021</strong><span>Conference</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge conference">Conference paper</span><span class="pub-badge code">Code available</span></div><span class="pub-topic">Networked mobile robots</span></div><h3 class="pub-title">A Distributed Dual Decomposition Optimization Approach for Coordination of Networked Mobile Robots with Communication Delay</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, Reza Mahboobi Esfanjani</p><p class="pub-venue">9th RSI International Conference on Robotics and Mechatronics (ICRoM), IEEE, 2021</p><p class="pub-identifier"><i class="fas fa-link"></i>IEEE Xplore article</p><div class="pub-actions"><a class="pub-button primary" href="https://ieeexplore.ieee.org/abstract/document/9663474" target="_blank" rel="noopener noreferrer">View paper</a><a class="pub-button code-link" href="ros-simulations.html#simulations"><i class="fas fa-robot"></i> Simulation &amp; code</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
+                <article class="publication-card" data-topic="robotics multi-agent" data-year="2018" data-type="conference" data-key="rahimi2018predictive" data-url="https://ieeexplore.ieee.org/abstract/document/8657625">
+                    <div class="year-rail"><strong>2018</strong><span>Conference</span></div><div class="publication-body"><div class="pub-topline"><div class="pub-badges"><span class="pub-badge conference">Conference paper</span></div><span class="pub-topic">Mobile robotics</span></div><h3 class="pub-title">Distributed Predictive Control for Formation of Networked Mobile Robots</h3><p class="pub-authors"><strong>Farshad Rahimi</strong>, Reza Mahboobi Esfanjani</p><p class="pub-venue">6th RSI International Conference on Robotics and Mechatronics (ICRoM), IEEE, 2018</p><p class="pub-identifier"><i class="fas fa-link"></i>IEEE Xplore article</p><div class="pub-actions"><a class="pub-button primary" href="https://ieeexplore.ieee.org/abstract/document/8657625" target="_blank" rel="noopener noreferrer">View paper</a><button class="pub-button copy-citation" type="button">Citation</button><button class="pub-button copy-bibtex" type="button">BibTeX</button></div></div>
+                </article>
             </div>
-            <!-- Co-authors -->
-            <div id="co-authors" class="publication-section">
-                <div class="section-header">
-                    <h2 class="section-title">Co-authors</h2>
-                    <p class="section-subtitle">Collaborators and co-authors across my publications</p>
-                </div>
-                <div class="coauthors-grid">
-                    <span class="coauthor-chip">H. Rezaei</span>
-                    <span class="coauthor-chip">Sh. Ahmadpour</span>
-                    <span class="coauthor-chip">C. Guillaume</span>
-                    <span class="coauthor-chip">H. Shahi</span>
-                    <span class="coauthor-chip">Reza Mahboobi Esfanjani</span>
-                    <span class="coauthor-chip">Sepideh Ziaei</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div id="emptyState" class="empty-state"><i class="fas fa-search"></i><p>No publications match your search.</p></div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Farshad Rahimi. All rights reserved.</p>
-        </div>
-    </footer>
+        <section class="coauthors" aria-labelledby="coauthors-title"><p class="section-kicker-pub">COLLABORATION</p><h2 id="coauthors-title" class="pub-section-title">Selected co-authors</h2><div class="coauthor-grid"><div class="coauthor"><span class="coauthor-mark">HR</span><span>H. Rezaei</span></div><div class="coauthor"><span class="coauthor-mark">SA</span><span>Sh. Ahmadpour</span></div><div class="coauthor"><span class="coauthor-mark">CG</span><span>C. Guillaume</span></div><div class="coauthor"><span class="coauthor-mark">HS</span><span>H. Shahi</span></div><div class="coauthor"><span class="coauthor-mark">RM</span><span>Reza Mahboobi Esfanjani</span></div><div class="coauthor"><span class="coauthor-mark">SZ</span><span>Sepideh Ziaei</span></div></div></section>
+    </main>
 
+    <div id="toast" class="toast" role="status" aria-live="polite">Copied to clipboard</div>
+    <footer class="footer"><div class="container"><p>&copy; <span id="current-year">2026</span> Farshad Rahimi.</p></div></footer>
     <script src="script.js"></script>
+    <script>
+        const cards = Array.from(document.querySelectorAll('.publication-card'));
+        const chips = document.querySelectorAll('.chip[data-filter]');
+        const search = document.getElementById('publicationSearch');
+        const resultCount = document.getElementById('resultCount');
+        const emptyState = document.getElementById('emptyState');
+        const toast = document.getElementById('toast');
+        let activeFilter = 'all';
+
+        function filterPublications() {
+            const query = search.value.trim().toLowerCase();
+            let visible = 0;
+            cards.forEach(card => {
+                const topics = card.dataset.topic.split(' ');
+                const matches = (activeFilter === 'all' || topics.includes(activeFilter)) && (!query || card.textContent.toLowerCase().includes(query));
+                card.hidden = !matches;
+                if (matches) visible += 1;
+            });
+            resultCount.textContent = visible;
+            emptyState.style.display = visible ? 'none' : 'block';
+        }
+
+        chips.forEach(chip => chip.addEventListener('click', () => {
+            chips.forEach(item => { item.classList.remove('active'); item.setAttribute('aria-pressed','false'); });
+            chip.classList.add('active'); chip.setAttribute('aria-pressed','true'); activeFilter = chip.dataset.filter; filterPublications();
+        }));
+        search.addEventListener('input', filterPublications);
+
+        function cardData(button) {
+            const card = button.closest('.publication-card');
+            return { card, title:card.querySelector('.pub-title').textContent.trim(), authors:card.querySelector('.pub-authors').textContent.trim(), venue:card.querySelector('.pub-venue').textContent.trim(), year:card.dataset.year };
+        }
+
+        async function copyText(text, message) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                const field = document.createElement('textarea');
+                field.value = text; field.setAttribute('readonly',''); field.style.position = 'fixed'; field.style.opacity = '0';
+                document.body.appendChild(field); field.select(); document.execCommand('copy'); field.remove();
+            }
+            toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800);
+        }
+
+        document.querySelectorAll('.copy-citation').forEach(button => button.addEventListener('click', async () => {
+            const data = cardData(button); await copyText(`${data.authors}. “${data.title}.” ${data.venue}.`, 'Citation copied');
+        }));
+
+        document.querySelectorAll('.copy-bibtex').forEach(button => button.addEventListener('click', async () => {
+            const data = cardData(button); const field = data.card.dataset.type === 'conference' ? 'booktitle' : 'journal'; const identifier = data.card.dataset.doi ? `,\n  doi={${data.card.dataset.doi}}` : `,\n  url={${data.card.dataset.url}}`; const bibtex = `@${data.card.dataset.type}{${data.card.dataset.key},\n  title={${data.title}},\n  author={${data.authors}},\n  ${field}={${data.venue}},\n  year={${data.year}}${identifier}\n}`; await copyText(bibtex, 'BibTeX copied');
+        }));
+    </script>
 </body>
-</html> 
+</html>
