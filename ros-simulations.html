@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ROS and Webots mobile robot simulations by Farshad Rahimi, featuring distributed formation control, collision avoidance, attack-resilient navigation, model predictive control, and downloadable research code.">
+    <meta name="description" content="ROS and Webots mobile robot simulations by Farshad Rahimi, featuring security and safety for multi-agent navigation, control barrier functions, collision avoidance, and distributed control.">
     <meta name="theme-color" content="#071124">
     <meta property="og:title" content="ROS &amp; Webots Simulations | Farshad Rahimi">
-    <meta property="og:description" content="Watch mobile robot formation-control experiments and explore their open simulation packages.">
+    <meta property="og:description" content="Explore multi-agent security and safety, control barrier functions, attack monitoring, and mobile-robot coordination experiments.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://farshad-rahimi.com/ros-simulations.html">
     <meta property="og:image" content="https://farshad-rahimi.com/images/webots2.jpg">
@@ -101,7 +101,7 @@
         .video-caption { display: flex; justify-content: space-between; gap: 14px; max-width: 960px; margin: 14px auto 0; color: #94a3b8; font-size: .8rem; }
         .video-caption strong { color: #e2e8f0; }
 
-        .more-projects { margin-top: 74px; }
+        .featured-section, .more-projects { margin-top: 74px; }
         .project-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); gap: 22px; margin-top: 26px; }
         .visual-card, .detail-card { overflow: hidden; border: 1px solid var(--ros-line); border-radius: 22px; background: white; box-shadow: 0 14px 38px rgba(11,19,43,.07); }
         .visual-card img { display: block; width: 100%; height: 100%; min-height: 360px; object-fit: cover; }
@@ -115,7 +115,7 @@
         .detail-card .project-links { margin-top: auto; padding-top: 8px; }
         .research-note { margin-top: 28px; padding: 18px 20px; border-left: 4px solid var(--ros-cyan); border-radius: 10px; color: #334155; background: #ecfeff; line-height: 1.65; }
 
-        .new-project { margin-top: 74px; }
+        .new-project { margin-top: 0; }
         .concept-project { margin-top: 26px; overflow: hidden; border: 1px solid var(--ros-line); border-radius: 26px; background: white; box-shadow: 0 18px 50px rgba(11,19,43,.08); }
         .concept-overview { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(340px,.92fr); }
         .concept-copy { padding: 36px; }
@@ -142,6 +142,17 @@
         .research-objectives ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
         .research-objectives li { display: flex; gap: 10px; color: #334155; font-size: .82rem; font-weight: 700; line-height: 1.45; }
         .research-objectives i { margin-top: 3px; color: var(--ros-cyan); }
+        .project-media { display: grid; gap: 26px; margin-top: 34px; padding-top: 34px; border-top: 1px solid var(--ros-line); }
+        .media-block { overflow: hidden; border: 1px solid var(--ros-line); border-radius: 18px; background: #f8fafc; }
+        .media-block-copy { padding: 22px 24px; }
+        .media-block-copy h4 { margin: 0 0 9px; color: var(--ros-ink); font-size: 1.05rem; }
+        .media-block-copy p { margin: 0; color: var(--ros-muted); line-height: 1.75; }
+        .security-video { padding: 18px; background: #071124; }
+        .security-video video { display: block; width: 100%; max-height: 680px; margin: auto; border-radius: 12px; background: #000; }
+        .verification-figure { margin: 0; padding: 14px; background: white; }
+        .verification-figure a { display: block; }
+        .verification-figure img { display: block; width: 100%; height: auto; border-radius: 10px; }
+        .verification-figure figcaption { padding: 12px 6px 2px; color: var(--ros-muted); font-size: .77rem; text-align: center; }
 
         @media (max-width: 820px) {
             .featured-copy, .project-grid, .concept-overview, .project-details-grid { grid-template-columns: 1fr; }
@@ -184,18 +195,97 @@
         <div class="ros-hero-inner">
             <p class="ros-eyebrow">ROBOTICS · CONTROL · SIMULATION</p>
             <h1>Robots coordinating through intelligent control.</h1>
-            <p class="ros-lead">ROS and Webots experiments that translate distributed optimization and model predictive control into coordinated mobile-robot behavior.</p>
+            <p class="ros-lead">ROS and Webots experiments on security, safety, distributed control, and coordinated mobile-robot behavior.</p>
             <div class="hero-tags" aria-label="Simulation technologies">
                 <span class="hero-tag"><i class="fas fa-robot"></i> Khepera III</span>
                 <span class="hero-tag"><i class="fas fa-cubes"></i> Webots</span>
                 <span class="hero-tag"><i class="fas fa-network-wired"></i> Multi-robot systems</span>
+                <span class="hero-tag"><i class="fas fa-shield-halved"></i> Security &amp; safety</span>
                 <span class="hero-tag"><i class="fas fa-route"></i> Formation control</span>
             </div>
         </div>
     </header>
 
     <main id="simulations" class="ros-main">
-        <section aria-labelledby="featured-title">
+        <section class="new-project" aria-labelledby="security-safety-navigation-title">
+            <p class="section-kicker-ros">FEATURED RESEARCH PROJECT</p>
+            <h2 id="security-safety-navigation-title" class="ros-section-title">Security and Safety for multi-agent navigation</h2>
+            <p class="ros-section-lead">This picture shows a mission for multiple agents, such as nonholonomic robots, that are moving toward a target area.</p>
+
+            <article class="concept-project">
+                <div class="concept-overview">
+                    <div class="concept-copy">
+                        <div class="project-status">PROJECT 01 · RESEARCH IN PROGRESS</div>
+                        <div class="project-badges"><span class="project-badge">ROS</span><span class="project-badge">Multi-Agent Systems</span><span class="project-badge dark">Cybersecurity</span></div>
+                        <h3 class="project-title">Particle-filter monitoring with CBF conditions</h3>
+                        <p class="project-description">During this mission, the agents should maintain a minimum distance from each other to avoid inter-agent collisions, avoid collisions with static obstacles, and finally reach the target area.</p>
+                        <div class="concept-tags" aria-label="Project methods">
+                            <span class="concept-tag">Control Barrier Functions</span>
+                            <span class="concept-tag">Particle Filters</span>
+                            <span class="concept-tag">Attack Detection</span>
+                            <span class="concept-tag">Safe Navigation</span>
+                        </div>
+                    </div>
+                    <figure class="concept-visual">
+                        <img src="images/attack-resilient-multi-agent-navigation-concept.jpeg" alt="Hand-drawn concept showing multiple robots navigating around static obstacles toward a target area while maintaining safe separation" loading="lazy">
+                        <figcaption class="concept-caption"><i class="fas fa-pencil-alt"></i> Initial mission concept</figcaption>
+                    </figure>
+                </div>
+
+                <details class="project-disclosure">
+                    <summary><span><i class="fas fa-circle-info"></i>&nbsp; View project details, video, and results</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                    <div class="project-details">
+                        <div class="project-details-grid">
+                            <div class="project-narrative">
+                                <p>This picture shows a mission for multiple agents, such as nonholonomic robots, that are moving toward a target area. During this mission, they should maintain a minimum distance from each other to avoid inter-agent collisions, avoid collisions with static obstacles, and finally reach the target area.</p>
+                                <p>We use a CBF approach to achieve this goal. However, there are some important issues, such as cyberattacks. For example, an attacker may compromise the controller of one of the agents and, by knowing the entire process, send incorrect and false information to its neighbors. As a result, the other agents may fail to reach the target area or may collide with each other or with the obstacles.</p>
+                                <p>Here, we generally address this important issue to prevent the attacker from being successful. We use a particle filter to monitor the neighbors of each agent. Then, if we detect that some information is incorrect based on the physical behavior of the neighboring agents, we modify the safety and convergence conditions.</p>
+                            </div>
+                            <aside class="research-objectives" aria-label="Core research objectives">
+                                <h4>Core research objectives</h4>
+                                <ul>
+                                    <li><i class="fas fa-shield-halved"></i><span>Maintain safety under falsified neighbor information</span></li>
+                                    <li><i class="fas fa-people-arrows"></i><span>Prevent inter-agent collisions</span></li>
+                                    <li><i class="fas fa-mountain"></i><span>Avoid static obstacles</span></li>
+                                    <li><i class="fas fa-crosshairs"></i><span>Preserve convergence to the target region</span></li>
+                                    <li><i class="fas fa-wave-square"></i><span>Detect inconsistencies from physical behavior</span></li>
+                                </ul>
+                            </aside>
+                        </div>
+
+                        <div class="project-media">
+                            <section class="media-block" aria-labelledby="security-video-title">
+                                <div class="media-block-copy">
+                                    <h4 id="security-video-title"><i class="fas fa-circle-play"></i> Simulation under attack</h4>
+                                    <p>This video shows two agents moving toward their goals while avoiding the obstacles. After the attack starts, Agent 2 sends false information to Agent 1. The particle filter monitors this information, and the CBF conditions are changed to keep the agents safe during the motion.</p>
+                                </div>
+                                <div class="security-video">
+                                    <video controls preload="metadata" playsinline poster="images/cbf-safety-mobile-robots-poster.png">
+                                        <source src="Vidoes/cbf-safety-mobile-robots.m4v" type="video/mp4">
+                                        Your browser does not support HTML video.
+                                    </video>
+                                </div>
+                            </section>
+
+                            <section class="media-block" aria-labelledby="cbf-verification-title">
+                                <div class="media-block-copy">
+                                    <h4 id="cbf-verification-title"><i class="fas fa-chart-line"></i> CBF condition verification</h4>
+                                    <p>This figure verifies the CBF conditions for obstacle avoidance and inter-agent collision avoidance. The values stay above the CBF boundary for both agents, and the total number of violations is zero. It shows that the safety conditions are satisfied even after the attack starts.</p>
+                                </div>
+                                <figure class="verification-figure">
+                                    <a href="images/cbf-condition-verification.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size CBF condition verification figure">
+                                        <img src="images/cbf-condition-verification.png" alt="Plots showing zero obstacle and inter-agent CBF violations for two agents, including after the attack starts" loading="lazy">
+                                    </a>
+                                    <figcaption>Obstacle and inter-agent CBF satisfaction with zero violations. Select the figure to view it at full size.</figcaption>
+                                </figure>
+                            </section>
+                        </div>
+                    </div>
+                </details>
+            </article>
+        </section>
+
+        <section class="featured-section" aria-labelledby="featured-title">
             <p class="section-kicker-ros">FEATURED EXPERIMENT</p>
             <h2 id="featured-title" class="ros-section-title">Formation control of mobile robots</h2>
             <p class="ros-section-lead">A distributed coordination experiment with communication delay, constrained optimization, and Khepera III mobile robots.</p>
@@ -203,7 +293,7 @@
             <article class="featured-project">
                 <div class="featured-copy">
                     <div class="project-summary">
-                        <div class="project-badges"><span class="project-badge">ROS</span><span class="project-badge">Webots</span><span class="project-badge dark">MATLAB</span></div>
+                        <div class="project-badges"><span class="project-badge dark">PROJECT 02</span><span class="project-badge">ROS</span><span class="project-badge">Webots</span><span class="project-badge dark">MATLAB</span></div>
                         <h3 class="project-title">Distributed formation control under communication delay</h3>
                         <p class="project-description">The simulation coordinates networked Khepera III robots using distributed dual-decomposition optimization. MATLAB's constrained optimization workflow supports the coordination strategy while ROS and Webots provide the robotic simulation environment.</p>
                         <div class="tech-list">
@@ -246,7 +336,7 @@
             <div class="project-grid">
                 <div class="visual-card"><img src="images/webots2.jpg" alt="Four mobile robots performing formation control in a Webots simulation" loading="lazy"></div>
                 <article class="detail-card">
-                    <span class="detail-number">PROJECT 02</span>
+                    <span class="detail-number">PROJECT 03</span>
                     <h3>Formation control with collision avoidance</h3>
                     <p>Four networked mobile robots track a coordinated formation while maintaining collision-free motion. The experiment combines distributed optimization with model predictive control and uses Khepera III robots for validation.</p>
                     <div class="detail-points">
@@ -258,56 +348,6 @@
                     <div class="project-links"><a class="ros-button primary" href="codes/webotsimulation.rar" download><i class="fas fa-download"></i> Download Webots simulation</a></div>
                 </article>
             </div>
-        </section>
-
-        <section class="new-project" aria-labelledby="resilient-navigation-title">
-            <p class="section-kicker-ros">NEW RESEARCH PROJECT</p>
-            <h2 id="resilient-navigation-title" class="ros-section-title">Attack-resilient safe multi-agent navigation</h2>
-            <p class="ros-section-lead">A cyber-resilient control framework for helping multiple nonholonomic robots reach a target region safely despite compromised neighbor information.</p>
-
-            <article class="concept-project">
-                <div class="concept-overview">
-                    <div class="concept-copy">
-                        <div class="project-status">PROJECT 03 · RESEARCH IN PROGRESS</div>
-                        <div class="project-badges"><span class="project-badge">ROS</span><span class="project-badge">Multi-Agent Systems</span><span class="project-badge dark">Cybersecurity</span></div>
-                        <h3 class="project-title">Particle-filter monitoring with adaptive CBF constraints</h3>
-                        <p class="project-description">The mission combines target-region convergence, inter-agent separation, and static-obstacle avoidance. A particle-filter-based monitoring layer identifies physically inconsistent neighbor information and supports resilient updates to the safety and convergence conditions.</p>
-                        <div class="concept-tags" aria-label="Project methods">
-                            <span class="concept-tag">Control Barrier Functions</span>
-                            <span class="concept-tag">Particle Filters</span>
-                            <span class="concept-tag">Attack Detection</span>
-                            <span class="concept-tag">Safe Navigation</span>
-                        </div>
-                    </div>
-                    <figure class="concept-visual">
-                        <img src="images/attack-resilient-multi-agent-navigation-concept.jpeg" alt="Hand-drawn concept showing multiple robots navigating around static obstacles toward a target area while maintaining safe separation" loading="lazy">
-                        <figcaption class="concept-caption"><i class="fas fa-pencil-alt"></i> Initial mission concept</figcaption>
-                    </figure>
-                </div>
-
-                <details class="project-disclosure">
-                    <summary><span><i class="fas fa-circle-info"></i>&nbsp; View project details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
-                    <div class="project-details">
-                        <div class="project-details-grid">
-                            <div class="project-narrative">
-                                <p>This project considers a mission involving multiple agents, such as nonholonomic robots, moving toward a target region. Throughout the mission, the agents must maintain a minimum distance from one another to avoid inter-agent collisions, avoid collisions with static obstacles, and ultimately reach the target region.</p>
-                                <p>We use a control barrier function (CBF) approach to satisfy these safety objectives. However, cyberattacks introduce an important challenge. An attacker may compromise the controller of one agent and, with knowledge of the overall process, transmit incorrect or falsified information to neighboring agents. Consequently, the other agents may fail to reach the target region or may collide with one another or with obstacles.</p>
-                                <p>Our objective is to prevent such an attacker from succeeding. A particle filter monitors the neighbors of each agent. When the observed physical behavior of a neighboring agent indicates that received information is inconsistent, the framework detects the anomaly and modifies the safety and convergence conditions accordingly.</p>
-                            </div>
-                            <aside class="research-objectives" aria-label="Core research objectives">
-                                <h4>Core research objectives</h4>
-                                <ul>
-                                    <li><i class="fas fa-shield-halved"></i><span>Maintain safety under falsified neighbor information</span></li>
-                                    <li><i class="fas fa-people-arrows"></i><span>Prevent inter-agent collisions</span></li>
-                                    <li><i class="fas fa-mountain"></i><span>Avoid static obstacles</span></li>
-                                    <li><i class="fas fa-crosshairs"></i><span>Preserve convergence to the target region</span></li>
-                                    <li><i class="fas fa-wave-square"></i><span>Detect inconsistencies from physical behavior</span></li>
-                                </ul>
-                            </aside>
-                        </div>
-                    </div>
-                </details>
-            </article>
         </section>
 
         <div class="research-note"><strong>Reproducibility:</strong> Simulation packages are publicly available for academic use. Please cite the related publication when adapting these materials for research.</div>
