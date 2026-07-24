@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ROS and Webots mobile robot simulations by Farshad Rahimi, featuring security and safety for multi-agent navigation, control barrier functions, collision avoidance, and distributed control.">
+    <meta name="description" content="ROS 2 and Linux mobile-robot simulations by Farshad Rahimi, featuring control barrier function safety verification, obstacle avoidance, secure multi-agent navigation, and distributed control.">
     <meta name="theme-color" content="#071124">
     <meta property="og:title" content="ROS &amp; Webots Simulations | Farshad Rahimi">
     <meta property="og:description" content="Explore multi-agent security and safety, control barrier functions, attack monitoring, and mobile-robot coordination experiments.">
@@ -22,7 +22,7 @@
       "name": "ROS and Webots Simulations",
       "url": "https://farshad-rahimi.com/ros-simulations.html",
       "author": {"@type": "Person", "name": "Farshad Rahimi"},
-      "about": ["ROS", "Webots", "Mobile robots", "Formation control", "Collision avoidance", "Control barrier functions", "Cyber-resilient control"]
+      "about": ["ROS 2", "Linux", "RViz", "Webots", "Mobile robots", "Formation control", "Collision avoidance", "Control barrier functions", "Cyber-resilient control"]
     }
     </script>
     <style>
@@ -115,7 +115,26 @@
         .detail-card .project-links { margin-top: auto; padding-top: 8px; }
         .research-note { margin-top: 28px; padding: 18px 20px; border-left: 4px solid var(--ros-cyan); border-radius: 10px; color: #334155; background: #ecfeff; line-height: 1.65; }
 
-        .new-project { margin-top: 0; }
+        .cbf-validation { margin-top: 0; }
+        .validation-card { margin-top: 28px; overflow: hidden; border: 1px solid var(--ros-line); border-radius: 26px; background: white; box-shadow: 0 20px 55px rgba(11,19,43,.09); }
+        .validation-overview { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(300px,.8fr); }
+        .validation-copy { padding: 36px; }
+        .validation-copy .project-description + .project-description { margin-top: 15px; }
+        .validation-panel { display: flex; flex-direction: column; justify-content: space-between; padding: 34px; color: white; background: linear-gradient(145deg,#064e3b,#0f766e 55%,#075985); }
+        .validation-panel .meta-label { color: #a7f3d0; }
+        .validation-panel h3 { margin: 12px 0 17px; font-size: 1.25rem; line-height: 1.4; }
+        .validation-checks { display: grid; gap: 12px; margin-top: 20px; }
+        .validation-check { display: flex; align-items: flex-start; gap: 10px; color: #d1fae5; font-size: .84rem; font-weight: 700; line-height: 1.45; }
+        .validation-check i { margin-top: 3px; color: #5eead4; }
+        .validation-runtime { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.2); color: #ccfbf1; font-size: .8rem; line-height: 1.65; }
+        .validation-runtime strong { display: block; margin-bottom: 4px; color: white; font-size: .9rem; }
+        .validation-stack { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 25px; }
+        .stack-item { display: flex; align-items: center; gap: 9px; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 11px; color: #334155; background: #f8fafc; font-size: .82rem; font-weight: 800; }
+        .stack-item i { color: var(--ros-green); }
+        .validation-video-caption { display: flex; justify-content: space-between; gap: 14px; max-width: 960px; margin: 14px auto 0; color: #94a3b8; font-size: .8rem; }
+        .validation-video-caption strong { color: #e2e8f0; }
+
+        .new-project { margin-top: 74px; }
         .concept-project { margin-top: 26px; overflow: hidden; border: 1px solid var(--ros-line); border-radius: 26px; background: white; box-shadow: 0 18px 50px rgba(11,19,43,.08); }
         .concept-overview { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(340px,.92fr); }
         .concept-copy { padding: 36px; }
@@ -155,7 +174,7 @@
         .verification-figure figcaption { padding: 12px 6px 2px; color: var(--ros-muted); font-size: .77rem; text-align: center; }
 
         @media (max-width: 820px) {
-            .featured-copy, .project-grid, .concept-overview, .project-details-grid { grid-template-columns: 1fr; }
+            .featured-copy, .project-grid, .concept-overview, .project-details-grid, .validation-overview { grid-template-columns: 1fr; }
             .visual-card img { min-height: 280px; max-height: 430px; }
             .concept-visual { order: -1; min-height: 320px; }
             .concept-visual img { min-height: 320px; max-height: 480px; }
@@ -163,11 +182,14 @@
 
         @media (max-width: 520px) {
             .ros-hero { padding-top: 125px; }
-            .project-summary, .project-meta-panel, .detail-card, .concept-copy, .project-details { padding: 24px; }
+            .project-summary, .project-meta-panel, .detail-card, .concept-copy, .project-details, .validation-copy, .validation-panel { padding: 24px; }
             .tech-list { grid-template-columns: 1fr; }
+            .validation-stack { grid-template-columns: 1fr; }
             .video-stage { padding: 10px; }
             .video-caption { display: block; }
             .video-caption span { display: block; margin-top: 4px; }
+            .validation-video-caption { display: block; }
+            .validation-video-caption span { display: block; margin-top: 4px; }
             .ros-button { flex: 1 1 auto; }
             .project-disclosure summary { padding: 19px 22px; }
         }
@@ -198,6 +220,7 @@
             <p class="ros-lead">ROS and Webots experiments on security, safety, distributed control, and coordinated mobile-robot behavior.</p>
             <div class="hero-tags" aria-label="Simulation technologies">
                 <span class="hero-tag"><i class="fas fa-robot"></i> Khepera III</span>
+                <span class="hero-tag"><i class="fab fa-linux"></i> ROS 2 / Linux</span>
                 <span class="hero-tag"><i class="fas fa-cubes"></i> Webots</span>
                 <span class="hero-tag"><i class="fas fa-network-wired"></i> Multi-robot systems</span>
                 <span class="hero-tag"><i class="fas fa-shield-halved"></i> Security &amp; safety</span>
@@ -207,6 +230,52 @@
     </header>
 
     <main id="simulations" class="ros-main">
+        <section class="cbf-validation" aria-labelledby="cbf-validation-title">
+            <p class="section-kicker-ros">INDUSTRIAL ROS VALIDATION</p>
+            <h2 id="cbf-validation-title" class="ros-section-title">Control Barrier Function safety verification in ROS</h2>
+            <p class="ros-section-lead">A ROS 2 and Linux simulation verifies safe goal-reaching for mobile robots operating in a workspace with multiple obstacles.</p>
+
+            <article class="validation-card">
+                <div class="validation-overview">
+                    <div class="validation-copy">
+                        <div class="project-badges"><span class="project-badge">ROS 2 Jazzy</span><span class="project-badge">Linux</span><span class="project-badge dark">RViz</span><span class="project-badge dark">CBF</span></div>
+                        <h3 class="project-title">Obstacle-aware goal reaching with continuous safety enforcement</h3>
+                        <p class="project-description">This verification focuses on the main operational requirements of the mission: the robots must reach the assigned target area, maintain safe clearance from the obstacles, and preserve safe separation from each other throughout the motion.</p>
+                        <p class="project-description">The Control Barrier Function continuously evaluates the safety constraints and adjusts the control command whenever the planned motion approaches an unsafe region. The result is a collision-free trajectory without removing the goal-reaching objective.</p>
+                        <div class="validation-stack" aria-label="Validation technology stack">
+                            <div class="stack-item"><i class="fab fa-linux"></i> Linux runtime</div>
+                            <div class="stack-item"><i class="fas fa-diagram-project"></i> ROS 2 nodes</div>
+                            <div class="stack-item"><i class="fas fa-cube"></i> RViz visualization</div>
+                            <div class="stack-item"><i class="fas fa-shield-halved"></i> Real-time CBF logic</div>
+                        </div>
+                    </div>
+                    <aside class="validation-panel" aria-label="Engineering validation criteria">
+                        <div>
+                            <p class="meta-label">ENGINEERING VALIDATION</p>
+                            <h3>Pre-deployment testing for safety-critical robot control</h3>
+                            <div class="validation-checks">
+                                <div class="validation-check"><i class="fas fa-check-circle"></i><span>Continuous enforcement of CBF safety constraints</span></div>
+                                <div class="validation-check"><i class="fas fa-check-circle"></i><span>Target-reaching in an obstacle-rich workspace</span></div>
+                                <div class="validation-check"><i class="fas fa-check-circle"></i><span>Modular ROS 2 integration for control and visualization</span></div>
+                                <div class="validation-check"><i class="fas fa-check-circle"></i><span>Repeatable testing in a Linux environment</span></div>
+                            </div>
+                        </div>
+                        <div class="validation-runtime"><strong>Industrial relevance</strong>ROS and Linux provide a standard workflow for integrating, testing, and validating robotics software before deployment to physical hardware.</div>
+                    </aside>
+                </div>
+
+                <div class="video-stage">
+                    <div class="video-shell">
+                        <video controls preload="auto" playsinline poster="images/ros-linux-cbf-safety-verification-poster.jpg">
+                            <source src="Vidoes/ros-linux-cbf-safety-verification.webm" type="video/webm">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                    <div class="validation-video-caption"><strong>ROS 2 / Linux safety demonstration</strong><span>CBF-based navigation of two agents toward a target area while avoiding multiple obstacles in RViz</span></div>
+                </div>
+            </article>
+        </section>
+
         <section class="new-project" aria-labelledby="security-safety-navigation-title">
             <p class="section-kicker-ros">FEATURED RESEARCH PROJECT</p>
             <h2 id="security-safety-navigation-title" class="ros-section-title">Security and Safety for multi-agent navigation</h2>
