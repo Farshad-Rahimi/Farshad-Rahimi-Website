@@ -100,6 +100,16 @@
         .video-shell video { display: block; width: 100%; max-height: 620px; background: #000; }
         .video-caption { display: flex; justify-content: space-between; gap: 14px; max-width: 960px; margin: 14px auto 0; color: #94a3b8; font-size: .8rem; }
         .video-caption strong { color: #e2e8f0; }
+        .video-carousel { border-top: 1px solid var(--ros-line); background: #071124; }
+        .video-carousel-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; max-width: 1004px; margin: auto; padding: 18px 22px 0; }
+        .video-carousel-count { color: #bae6fd; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        .video-carousel-controls { display: flex; gap: 9px; }
+        .video-carousel-button { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 9px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; color: #e0f2fe; background: rgba(255,255,255,.08); font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer; transition: .2s ease; }
+        .video-carousel-button:hover:not(:disabled) { border-color: #67e8f9; background: rgba(8,145,178,.25); transform: translateY(-1px); }
+        .video-carousel-button:focus-visible { outline: 3px solid #67e8f9; outline-offset: 3px; }
+        .video-carousel-button:disabled { color: #64748b; border-color: rgba(255,255,255,.08); background: rgba(255,255,255,.025); cursor: not-allowed; }
+        .video-carousel .video-stage { border-top: 0; }
+        .video-slide[hidden] { display: none; }
 
         .featured-section, .more-projects { margin-top: 74px; }
         .project-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); gap: 22px; margin-top: 26px; }
@@ -188,6 +198,9 @@
             .video-stage { padding: 10px; }
             .video-caption { display: block; }
             .video-caption span { display: block; margin-top: 4px; }
+            .video-carousel-toolbar { align-items: stretch; padding: 14px 10px 0; flex-direction: column; }
+            .video-carousel-controls { display: grid; grid-template-columns: 1fr 1fr; }
+            .video-carousel-button { justify-content: center; padding-inline: 10px; }
             .validation-video-caption { display: block; }
             .validation-video-caption span { display: block; margin-top: 4px; }
             .ros-button { flex: 1 1 auto; }
@@ -264,14 +277,38 @@
                     </aside>
                 </div>
 
-                <div class="video-stage">
-                    <div class="video-shell">
-                        <video controls preload="auto" playsinline poster="images/ros-linux-cbf-safety-verification-poster.jpg">
-                            <source src="Vidoes/ros-linux-cbf-safety-verification.webm" type="video/webm">
-                            Your browser does not support HTML video.
-                        </video>
+                <div class="video-carousel" data-video-carousel aria-label="CBF safety demonstrations">
+                    <div class="video-carousel-toolbar">
+                        <span class="video-carousel-count" data-video-count aria-live="polite">Demonstration 1 of 2</span>
+                        <div class="video-carousel-controls">
+                            <button class="video-carousel-button" type="button" data-video-previous disabled>
+                                <i class="fas fa-arrow-left" aria-hidden="true"></i> Previous
+                            </button>
+                            <button class="video-carousel-button" type="button" data-video-next>
+                                Next <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="validation-video-caption"><strong>ROS 2 / Linux safety demonstration</strong><span>CBF-based navigation of two agents toward a target area while avoiding multiple obstacles in RViz</span></div>
+
+                    <div class="video-stage video-slide" data-video-slide aria-hidden="false">
+                        <div class="video-shell">
+                            <video controls preload="metadata" playsinline poster="images/ros-linux-cbf-safety-verification-poster.jpg">
+                                <source src="Vidoes/ros-linux-cbf-safety-verification.webm" type="video/webm">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <div class="validation-video-caption"><strong>ROS 2 / Linux safety demonstration</strong><span>CBF-based navigation of two agents toward a target area while avoiding multiple obstacles in RViz</span></div>
+                    </div>
+
+                    <div class="video-stage video-slide" data-video-slide aria-hidden="true" hidden>
+                        <div class="video-shell">
+                            <video controls preload="metadata" playsinline poster="images/gazebo-cbf-safety-demonstration-poster.jpg">
+                                <source src="Vidoes/gazebo-cbf-safety-demonstration.webm" type="video/webm">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <div class="validation-video-caption"><strong>Gazebo physics simulation</strong><span>Physics-based validation of CBF-constrained robot navigation in an obstacle-rich operational environment</span></div>
+                    </div>
                 </div>
             </article>
         </section>
@@ -423,6 +460,6 @@
     </main>
 
     <footer class="footer"><div class="container"><p>&copy; <span id="current-year">2026</span> Farshad Rahimi.</p></div></footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260724-gazebo"></script>
 </body>
 </html>

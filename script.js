@@ -166,5 +166,43 @@ function setActiveNavItem() {
 
 window.addEventListener('scroll', setActiveNavItem); 
 
+document.querySelectorAll('[data-video-carousel]').forEach(carousel => {
+    const slides = Array.from(carousel.querySelectorAll('[data-video-slide]'));
+    const previousButton = carousel.querySelector('[data-video-previous]');
+    const nextButton = carousel.querySelector('[data-video-next]');
+    const countLabel = carousel.querySelector('[data-video-count]');
+    let activeIndex = 0;
+
+    if (!slides.length || !previousButton || !nextButton || !countLabel) return;
+
+    const showSlide = index => {
+        slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === index;
+            slide.hidden = !isActive;
+            slide.setAttribute('aria-hidden', String(!isActive));
+
+            if (!isActive) {
+                const video = slide.querySelector('video');
+                if (video) video.pause();
+            }
+        });
+
+        activeIndex = index;
+        previousButton.disabled = activeIndex === 0;
+        nextButton.disabled = activeIndex === slides.length - 1;
+        countLabel.textContent = `Demonstration ${activeIndex + 1} of ${slides.length}`;
+    };
+
+    previousButton.addEventListener('click', () => {
+        showSlide(Math.max(0, activeIndex - 1));
+    });
+
+    nextButton.addEventListener('click', () => {
+        showSlide(Math.min(slides.length - 1, activeIndex + 1));
+    });
+
+    showSlide(0);
+});
+
 const year = document.getElementById('current-year');
 if (year) year.textContent = new Date().getFullYear();
