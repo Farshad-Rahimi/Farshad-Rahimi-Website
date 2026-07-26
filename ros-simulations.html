@@ -124,6 +124,13 @@
         .cbf-result-number { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: white; background: linear-gradient(145deg,#0891b2,#2563eb); font-size: .76rem; font-weight: 800; }
         .cbf-result-copy h4 { margin: 0 0 5px; color: var(--ros-ink); font-size: .94rem; }
         .cbf-result-copy p { margin: 0; color: var(--ros-muted); font-size: .78rem; line-height: 1.55; }
+        .trajectory-result { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(300px,.72fr) minmax(0,1.28fr); align-items: center; }
+        .trajectory-result > a { border-right: 1px solid var(--ros-line); border-bottom: 0; background: #f8fafc; }
+        .trajectory-result img { max-height: 650px; object-fit: contain; }
+        .trajectory-result .cbf-result-copy { padding: 30px; }
+        .trajectory-result .cbf-result-copy h4 { font-size: 1.2rem; }
+        .trajectory-result .cbf-result-copy p { max-width: 480px; font-size: .85rem; line-height: 1.7; }
+        .safety-result { grid-column: 1 / -1; }
 
         .featured-section, .more-projects { margin-top: 74px; }
         .project-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); gap: 22px; margin-top: 26px; }
@@ -221,6 +228,11 @@
             .cbf-results-header { display: block; }
             .cbf-results-header p { margin-top: 10px; }
             .cbf-results-grid { grid-template-columns: 1fr; }
+            .trajectory-result { display: block; }
+            .trajectory-result > a { border-right: 0; border-bottom: 1px solid var(--ros-line); }
+            .trajectory-result img { max-height: 540px; }
+            .trajectory-result .cbf-result-copy { padding: 20px 18px; }
+            .safety-result { grid-column: auto; }
             .ros-button { flex: 1 1 auto; }
             .project-disclosure summary { padding: 19px 22px; }
         }
@@ -339,19 +351,19 @@
                     </div>
 
                     <div class="cbf-results-grid">
-                        <article class="cbf-result-card">
-                            <a href="images/cbf-run-04-trajectories.png" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 04 at full resolution">
-                                <img src="images/cbf-run-04-trajectories.png" alt="Figure 04 showing the CBF safety margins for inter-agent and obstacle constraints" loading="lazy">
+                        <article class="cbf-result-card trajectory-result">
+                            <a href="images/cbf-run-04-trajectories.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 04 at full resolution">
+                                <img src="images/cbf-run-04-trajectories.png?v=corrected-pdf" alt="Figure 04 showing two mobile-agent trajectories navigating around physical obstacles and converging to the target region" loading="lazy">
                             </a>
                             <div class="cbf-result-copy">
                                 <span class="cbf-result-number">04</span>
-                                <div><h4>CBF safety-margin evolution</h4><p>The supplied Figure 04 shows the safety margins remaining above the zero boundary during the experiment.</p></div>
+                                <div><h4>Multi-agent Gazebo trajectories</h4><p>The two agents navigate around the inflated obstacle boundaries along collision-free paths and converge to the assigned target region.</p></div>
                             </div>
                         </article>
 
                         <article class="cbf-result-card">
-                            <a href="images/cbf-run-03-control-effort.png" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 03 at full resolution">
-                                <img src="images/cbf-run-03-control-effort.png" alt="Figure 03 showing the control effort of Agent 1 and Agent 2" loading="lazy">
+                            <a href="images/cbf-run-03-control-effort.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 03 at full resolution">
+                                <img src="images/cbf-run-03-control-effort.png?v=corrected-pdf" alt="Figure 03 showing the control effort of Agent 1 and Agent 2" loading="lazy">
                             </a>
                             <div class="cbf-result-copy">
                                 <span class="cbf-result-number">03</span>
@@ -360,8 +372,8 @@
                         </article>
 
                         <article class="cbf-result-card">
-                            <a href="images/cbf-run-02-target-convergence.png" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 02 at full resolution">
-                                <img src="images/cbf-run-02-target-convergence.png" alt="Figure 02 showing both agents converging to the target-set boundary" loading="lazy">
+                            <a href="images/cbf-run-02-target-convergence.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 02 at full resolution">
+                                <img src="images/cbf-run-02-target-convergence.png?v=corrected-pdf" alt="Figure 02 showing both agents converging to the target-set boundary" loading="lazy">
                             </a>
                             <div class="cbf-result-copy">
                                 <span class="cbf-result-number">02</span>
@@ -369,9 +381,9 @@
                             </div>
                         </article>
 
-                        <article class="cbf-result-card">
-                            <a href="images/cbf-run-01-safety-margins.png" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 01 at full resolution">
-                                <img src="images/cbf-run-01-safety-margins.png" alt="Figure 01 showing positive inter-agent and obstacle safety margins" loading="lazy">
+                        <article class="cbf-result-card safety-result">
+                            <a href="images/cbf-run-01-safety-margins.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 01 at full resolution">
+                                <img src="images/cbf-run-01-safety-margins.png?v=corrected-pdf" alt="Figure 01 showing positive inter-agent and obstacle safety margins" loading="lazy">
                             </a>
                             <div class="cbf-result-copy">
                                 <span class="cbf-result-number">01</span>
