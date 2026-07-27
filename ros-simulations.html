@@ -110,7 +110,20 @@
         .video-carousel-button:disabled { color: #64748b; border-color: rgba(255,255,255,.08); background: rgba(255,255,255,.025); cursor: not-allowed; }
         .video-carousel .video-stage { border-top: 0; }
         .video-slide[hidden] { display: none; }
-        .cbf-results-gallery { padding: 34px; border-top: 1px solid var(--ros-line); background: #f8fafc; }
+        .cbf-results-disclosure { border-top: 1px solid var(--ros-line); background: #f8fafc; }
+        .cbf-results-disclosure summary { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 22px 34px; color: var(--ros-ink); background: white; cursor: pointer; list-style: none; transition: .2s ease; }
+        .cbf-results-disclosure summary::-webkit-details-marker { display: none; }
+        .cbf-results-disclosure summary:hover { background: #f0fdfa; }
+        .cbf-results-disclosure summary:focus-visible { outline: 3px solid #22d3ee; outline-offset: -3px; }
+        .cbf-results-disclosure[open] summary { border-bottom: 1px solid var(--ros-line); background: #ecfeff; }
+        .cbf-results-summary-copy { display: flex; align-items: center; gap: 14px; }
+        .cbf-results-summary-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 45px; height: 45px; border-radius: 13px; color: white; background: linear-gradient(145deg,#0891b2,#2563eb); box-shadow: 0 8px 20px rgba(37,99,235,.2); }
+        .cbf-results-summary-copy strong { display: block; font-size: .95rem; }
+        .cbf-results-summary-copy small { display: block; margin-top: 4px; color: var(--ros-muted); font-size: .77rem; font-weight: 500; }
+        .cbf-results-summary-action { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: var(--ros-blue); font-size: .76rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+        .cbf-results-summary-action i { transition: transform .25s ease; }
+        .cbf-results-disclosure[open] .cbf-results-summary-action i { transform: rotate(180deg); }
+        .cbf-results-gallery { padding: 34px; background: #f8fafc; }
         .cbf-results-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 22px; margin-bottom: 22px; }
         .cbf-results-header h3 { margin: 5px 0 0; color: var(--ros-ink); font-size: 1.5rem; letter-spacing: -.025em; }
         .cbf-results-header p { max-width: 560px; margin: 0; color: var(--ros-muted); font-size: .86rem; line-height: 1.65; }
@@ -224,6 +237,9 @@
             .video-carousel-button { justify-content: center; padding-inline: 10px; }
             .validation-video-caption { display: block; }
             .validation-video-caption span { display: block; margin-top: 4px; }
+            .cbf-results-disclosure summary { align-items: flex-start; padding: 18px 14px; }
+            .cbf-results-summary-action span { display: none; }
+            .cbf-results-summary-copy small { line-height: 1.45; }
             .cbf-results-gallery { padding: 24px 14px; }
             .cbf-results-header { display: block; }
             .cbf-results-header p { margin-top: 10px; }
@@ -341,57 +357,67 @@
                     </div>
                 </div>
 
-                <section class="cbf-results-gallery" aria-labelledby="cbf-results-title">
-                    <div class="cbf-results-header">
-                        <div>
-                            <p class="meta-label">EXPERIMENT RESULTS</p>
-                            <h3 id="cbf-results-title">CBF validation figures</h3>
+                <details class="cbf-results-disclosure" id="cbf-results">
+                    <summary>
+                        <span class="cbf-results-summary-copy">
+                            <span class="cbf-results-summary-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></span>
+                            <span><strong>View detailed CBF results</strong><small>Open the trajectory, control-effort, convergence, and safety figures</small></span>
+                        </span>
+                        <span class="cbf-results-summary-action"><span>4 validation figures</span><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </summary>
+
+                    <section class="cbf-results-gallery" aria-labelledby="cbf-results-title">
+                        <div class="cbf-results-header">
+                            <div>
+                                <p class="meta-label">EXPERIMENT RESULTS</p>
+                                <h3 id="cbf-results-title">CBF validation figures</h3>
+                            </div>
+                            <p>The figures are presented in the requested order, from Figure 04 to Figure 01. Select any figure to inspect the full-resolution result.</p>
                         </div>
-                        <p>The figures are presented in the requested order, from Figure 04 to Figure 01. Select any figure to inspect the full-resolution result.</p>
-                    </div>
 
-                    <div class="cbf-results-grid">
-                        <article class="cbf-result-card trajectory-result">
-                            <a href="images/cbf-run-04-trajectories.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 04 at full resolution">
-                                <img src="images/cbf-run-04-trajectories.png?v=corrected-pdf" alt="Figure 04 showing two mobile-agent trajectories navigating around physical obstacles and converging to the target region" loading="lazy">
-                            </a>
-                            <div class="cbf-result-copy">
-                                <span class="cbf-result-number">04</span>
-                                <div><h4>Multi-agent Gazebo trajectories</h4><p>The two agents navigate around the inflated obstacle boundaries along collision-free paths and converge to the assigned target region.</p></div>
-                            </div>
-                        </article>
+                        <div class="cbf-results-grid">
+                            <article class="cbf-result-card trajectory-result">
+                                <a href="images/cbf-run-04-trajectories.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 04 at full resolution">
+                                    <img src="images/cbf-run-04-trajectories.png?v=corrected-pdf" alt="Figure 04 showing two mobile-agent trajectories navigating around physical obstacles and converging to the target region" loading="lazy">
+                                </a>
+                                <div class="cbf-result-copy">
+                                    <span class="cbf-result-number">04</span>
+                                    <div><h4>Multi-agent Gazebo trajectories</h4><p>The two agents navigate around the inflated obstacle boundaries along collision-free paths and converge to the assigned target region.</p></div>
+                                </div>
+                            </article>
 
-                        <article class="cbf-result-card">
-                            <a href="images/cbf-run-03-control-effort.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 03 at full resolution">
-                                <img src="images/cbf-run-03-control-effort.png?v=corrected-pdf" alt="Figure 03 showing the control effort of Agent 1 and Agent 2" loading="lazy">
-                            </a>
-                            <div class="cbf-result-copy">
-                                <span class="cbf-result-number">03</span>
-                                <div><h4>Control effort</h4><p>Both agent inputs remain below the control-norm limit and converge to zero after completing the maneuver.</p></div>
-                            </div>
-                        </article>
+                            <article class="cbf-result-card">
+                                <a href="images/cbf-run-03-control-effort.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 03 at full resolution">
+                                    <img src="images/cbf-run-03-control-effort.png?v=corrected-pdf" alt="Figure 03 showing the control effort of Agent 1 and Agent 2" loading="lazy">
+                                </a>
+                                <div class="cbf-result-copy">
+                                    <span class="cbf-result-number">03</span>
+                                    <div><h4>Control effort</h4><p>Both agent inputs remain below the control-norm limit and converge to zero after completing the maneuver.</p></div>
+                                </div>
+                            </article>
 
-                        <article class="cbf-result-card">
-                            <a href="images/cbf-run-02-target-convergence.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 02 at full resolution">
-                                <img src="images/cbf-run-02-target-convergence.png?v=corrected-pdf" alt="Figure 02 showing both agents converging to the target-set boundary" loading="lazy">
-                            </a>
-                            <div class="cbf-result-copy">
-                                <span class="cbf-result-number">02</span>
-                                <div><h4>Target convergence</h4><p>The distance of each agent decreases to the target-set boundary while the CBF constraints remain active.</p></div>
-                            </div>
-                        </article>
+                            <article class="cbf-result-card">
+                                <a href="images/cbf-run-02-target-convergence.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 02 at full resolution">
+                                    <img src="images/cbf-run-02-target-convergence.png?v=corrected-pdf" alt="Figure 02 showing both agents converging to the target-set boundary" loading="lazy">
+                                </a>
+                                <div class="cbf-result-copy">
+                                    <span class="cbf-result-number">02</span>
+                                    <div><h4>Target convergence</h4><p>The distance of each agent decreases to the target-set boundary while the CBF constraints remain active.</p></div>
+                                </div>
+                            </article>
 
-                        <article class="cbf-result-card safety-result">
-                            <a href="images/cbf-run-01-safety-margins.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 01 at full resolution">
-                                <img src="images/cbf-run-01-safety-margins.png?v=corrected-pdf" alt="Figure 01 showing positive inter-agent and obstacle safety margins" loading="lazy">
-                            </a>
-                            <div class="cbf-result-copy">
-                                <span class="cbf-result-number">01</span>
-                                <div><h4>Safety-margin verification</h4><p>The overall minimum margin stays positive, confirming collision-free operation throughout the recorded run.</p></div>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                            <article class="cbf-result-card safety-result">
+                                <a href="images/cbf-run-01-safety-margins.png?v=corrected-pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 01 at full resolution">
+                                    <img src="images/cbf-run-01-safety-margins.png?v=corrected-pdf" alt="Figure 01 showing positive inter-agent and obstacle safety margins" loading="lazy">
+                                </a>
+                                <div class="cbf-result-copy">
+                                    <span class="cbf-result-number">01</span>
+                                    <div><h4>Safety-margin verification</h4><p>The overall minimum margin stays positive, confirming collision-free operation throughout the recorded run.</p></div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </details>
             </article>
         </section>
 
